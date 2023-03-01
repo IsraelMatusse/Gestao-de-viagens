@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns: th="http://thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>    
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+	<p> <a href="/listarviajante"> Listar viajantes </a> </p>
+<form method="POST">
+		<p> <label for="nome"> Nome do passageiro </label > <input type="text" value="" name="nome" />
+		 <p> <label for="apelido"> Apelido do passageiro </label > <input type="text" value="" name="apelido" />
+		 <p> <label for="bairro"> Bairro do passageiro </label > <input type="text" value="" name="bairro" />
+		  <p> <label for="email"> Email do passageiro </label > <input type="email" value="" name="email" />
+		   <p> <label for="cidade"> Cidade do passageiro </label > <input type="text" value="" name="cidade"/>
+		  <p> <label for="provincia"> Provincia do passageiro </label > <input type="text" value="" name="Provincia"/>
+		  <p> <label for="anonascimento"> Ano de nascimento do passageiro </label > <input type="number" value="" name="anonascimento"/>
+		
+		<p> <input type="submit" value="cadastrar" /> </p>
+		</form>
+        
+    
+	<!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>

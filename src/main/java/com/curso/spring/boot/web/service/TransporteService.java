@@ -21,7 +21,7 @@ public class TransporteService {
 		 tr.save(transporte);
 	}
 	
-	public List<TransporteModel> listarmotorista(){
+	public List<TransporteModel> listartransporte(){
 		return (List<TransporteModel>) tr.findAll();
 	}
 	

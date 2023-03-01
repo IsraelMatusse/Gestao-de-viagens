@@ -14,22 +14,28 @@ public class TransporteController {
 	@Autowired
 	TransporteService transporteservice;
 	
+	@GetMapping("/transporte")
+	public String transporte() {
+		return "transporte/transporte";
+	}
+	
+	
 	@PostMapping("/transporte")
 	public String cadastrartransporte(TransporteModel transporte) {
 		 transporteservice.cadastrartransporte(transporte);
-		 return "redirect:/transporte/transporte";
+		 return "redirect:/transporte";
 	}
 	
 	@GetMapping("/listartransporte")
 	public ModelAndView listartransporte(){
-		ModelAndView mv= new ModelAndView();
-		mv.addObject("transporte", transporteservice.listarmotorista());
+		ModelAndView mv= new ModelAndView("transporte/listartransporte");
+		mv.addObject("transporte", transporteservice.listartransporte());
 		return mv;
 	}
 	
 	@GetMapping("/detalhestransporte")
-	public ModelAndView detalhestrnasporte(Long cod_transporte) {
-		ModelAndView mv = new ModelAndView();
+	public ModelAndView detalhestransporte(Long cod_transporte) {
+		ModelAndView mv = new ModelAndView("transporte/detalhestransporte");
 		mv.addObject("Transporte", transporteservice.listarporcodigo(cod_transporte));
 		return mv;
 	}

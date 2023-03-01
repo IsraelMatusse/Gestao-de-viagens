@@ -38,7 +38,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="transporte:${transporte}">
-			<td> <a th:href="${(#mvc.url('TC#detalhetransporte').arg(0, transporte.codtransporte)).build()}"> <span th:text=${transporte.marca}></span></a></td>
+			<td> <a th:href="${(#mvc.url('TC#detalhestransporte').arg(0, transporte.codtransporte)).build()}"> <span th:text=${transporte.marca}></span></a></td>
 			<td> <span th:text=${transporte.modelo}> </span> </td>
 			<td><span th:text=${transporte.anofabrico}> </span> </td>
 			<td><span th:text=${transporte.cor}> </span> </td>

@@ -54,11 +54,11 @@ public class TransporteModel {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public Long getAnofrabrico() {
-		return anofrabrico;
+	public Long getAnofabrico() {
+		return anofabrico;
 	}
-	public void setAnofrabrico(Long anofrabrico) {
-		this.anofrabrico = anofrabrico;
+	public void setAnofabrico(Long anofabrico) {
+		this.anofabrico = anofabrico;
 	}
 	public Long getQuilometragem() {
 		return quilometragem;
@@ -102,11 +102,14 @@ public class TransporteModel {
 	private Long lotacao;
 	private Long pesobruto;
 	private String tipo;
-	private Long anofrabrico;
+	private Long anofabrico;
 	private Long quilometragem;
 	private String combustivel;
 	private String nrmotor;
 	private Long nrportas;
+	
+	
+
 	
 	@ManyToOne
 	private AssociacaoModel associacao;

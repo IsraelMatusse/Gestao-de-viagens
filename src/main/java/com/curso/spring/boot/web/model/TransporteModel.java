@@ -130,6 +130,7 @@ public class TransporteModel {
 	public void setMotorista(MotoristaModel motorista) {
 		this.motorista = motorista;
 	}
+	
 	public ProprietarioModel getProprietario() {
 		return proprietario;
 	}

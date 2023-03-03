@@ -18,8 +18,8 @@
 </head>
 <body>
 
-	<h4>  Lista de motoristas</h4>
-	<h3> <a href="/trasnporte"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar Motorista </a> </h3>
+	<h4>  Lista de Carros</h4>
+	<h3> <a href="/transporte"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar Motorista </a> </h3>
 	<table class="container">
 		<thead>
 			<tr>
@@ -33,6 +33,7 @@
 				<th> Nr de motor</th>
 				<th> Combustivel</th>
                 <th>Tipo</th>
+                <th> Quilometragem </th>
 				
 			</tr>
 		</thead>
@@ -46,8 +47,9 @@
 			<td><span th:text=${transporte.lotacao}> </span> </td>
 			<td><span th:text=${transporte.pesobruto}> </span> </td>
 			<td><span th:text=${transporte.nrmotor}> </span> </td>
-			<td><span th:text=${tranporte.combustivel}> </span> </td>
-            <td><span th:text="${transporte.tipo}"></span></td>
+			<td><span th:text=${transporte.combustivel}> </span> </td>
+            <td><span th:text=${transporte.tipo}></span></td>
+            <td><span th:text=${transporte.quilometragem}></span></td>
 			</tr>
 		</tbody>
 	</table>

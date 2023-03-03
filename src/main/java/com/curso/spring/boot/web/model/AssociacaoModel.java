@@ -78,20 +78,14 @@ public class AssociacaoModel implements Serializable{
 	inverseJoinColumns = @JoinColumn(name="rota_fk"))
 	private List<RotaModel>rotas;
 	
-	@OneToMany(mappedBy="associacao", cascade=CascadeType.REMOVE)
-	private List<TransporteModel> transportes ;
+	
 	public List<RotaModel> getRotas() {
 		return rotas;
 	}
 	public void setRotas(List<RotaModel> rotas) {
 		this.rotas = rotas;
 	}
-	public List<TransporteModel> getTransportes() {
-		return transportes;
-	}
-	public void setTransportes(List<TransporteModel> transportes) {
-		this.transportes = transportes;
-	}
+
 	
 	
 }

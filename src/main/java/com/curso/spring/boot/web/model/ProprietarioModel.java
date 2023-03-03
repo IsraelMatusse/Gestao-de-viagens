@@ -3,6 +3,7 @@ package com.curso.spring.boot.web.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -52,19 +53,12 @@ public abstract class ProprietarioModel implements Serializable {
 		this.cidade = cidade;
 	}
 	
-	@OneToMany(mappedBy="proprietario")
-	private List<TransporteModel> transportes;
 	public String getTipolicenca() {
 		return tipolicenca;
 	}
 	public void setTipolicenca(String tipolicenca) {
 		this.tipolicenca = tipolicenca;
 	}
-	public List<TransporteModel> getTransportes() {
-		return transportes;
-	}
-	public void setTransportes(List<TransporteModel> transportes) {
-		this.transportes = transportes;
-	}
+
 
 }

@@ -9,12 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.spring.boot.web.model.AssociacaoModel;
 import com.curso.spring.boot.web.repository.AssociacaoRepository;
+import com.curso.spring.boot.web.service.AssociacaoService;
 
 @Controller
 public class AssociacaoController {
 
 	@Autowired
-	AssociacaoRepository ar;
+	
+	AssociacaoService associacaoservice;
 	@RequestMapping(value="/cadastrarAssociacao", method= RequestMethod.GET )
 	public String cadastrarAssociacao() {
 		return "associacao/associacao";
@@ -22,25 +24,21 @@ public class AssociacaoController {
 	
 	@RequestMapping(value="/cadastrarAssociacao", method=RequestMethod.POST)
 	 public String cadastrarViagem( AssociacaoModel associacao) {
-		 ar.save(associacao);
+		associacaoservice.cadastrarassociacao(associacao);
 		 return "redirect:/cadastrarAssociacao";
 	 }
 	
 	@RequestMapping(value="/listarAssociacao", method=RequestMethod.GET)
 	public ModelAndView listarAssociacao() {
 		ModelAndView mv= new ModelAndView("associacao/ListarAssociacao");
-		Iterable <AssociacaoModel> associacoes= ar.findAll();
-		mv.addObject("associacoes", associacoes);
+		
+		mv.addObject("associacoes", associacaoservice.listarassociacao());
 		return mv;
-		
-		
 	}
-	
 	@RequestMapping("Cod_Associacao/{cod_associacao}")
-	public ModelAndView detalhesAssociacao( @PathVariable("cod_associacao") Long cod_associacao) {
-		AssociacaoModel associacao= ar.findByCodassociacao(cod_associacao);
+	public ModelAndView detalhesAssociacao( @PathVariable("cod_associacao") Long cod_associacao) {	
 		ModelAndView mv= new ModelAndView("associacao/detalhesAssociacao");
-		mv.addObject("associacao", associacao);
+		mv.addObject("associacao", associacaoservice.listarporcodigo(cod_associacao));
 		return mv;
 	}
 }

@@ -21,19 +21,42 @@
 	<p> <a href="/listartransporte"> Listar Transporte </a> </p>
     <form action="" method="post">
 
-	<p> <label for="marca"> Marca </label > <input type="text" value="" name="marca" /> 
-			 <label for="modedelo"> Modelo </label > <input type="text" value="" name="modelo" /> 
+	<p> <label for="marca"> Marca </label > <input type="text" value="" name="marca" /> </p>
+	<p> <label for="modedelo"> Modelo </label > <input type="text" value="" name="modelo" />  </p>
 			   <p> <label for="anonafabrico"> ano de fabrico </label > <input type="number" value="" name="anofabrico"/></p>
-	  <p> <label for="cor"> Cor </label > <input type="text" value="" name="cor"/>
-	  </p>  <label for="matricula"> Matricula </label > <input type="text" value="" name="matricula" /> 
-	  	</p> <label for="Cidade"> Cidade </label > <input type="text" value="" name="Cidade"/> </p>
+	  <p> <label for="cor"> Cor </label > <input type="text" value="" name="cor"/> </p>
+	  <p>  <label for="matricula"> Matricula </label > <input type="text" value="" name="matricula" /> </p>
+	  	<p> <label for="Cidade"> Cidade </label > <input type="text" value="" name="Cidade"/> </p>
 		  	<p> <label for="nrmotor"> nr do motor </label > <input type="text" value="" name="nrmotor"/>
 		  	</p><label for="tipo"> Tipo  </label > <input type="text" value="" name="tipo"/> </p>
-			 <p> <label for="pesobruto"> Peso bruto </label > <input type="number" value="" name="pesobruto"/>
-			 <p> <label for="numeroportas" > Numero de portas </label> <input type="number" name="numeroportas"> </p>
+			 <p> <label for="pesobruto"> Peso bruto </label > <input type="number" value="" name="pesobruto"/> </p>
+			 <p> <label for="nrportas" > Numero de portas </label> <input type="number" name="nrportas"> </p>
 			 <p> <label for="lotacao" > Lotacao </label> <input type="number" name="lotacao"> </p>
-			 <p><label for="combstivel">Combustivel</label> <input type="text" name="combustivel" id=""></p>
-
+			 <p><label for="combustivel">Combustivel</label> <input type="text" name="combustivel"></p>
+			 <p><label for="quilometrgem">Quilometragem</label> <input type="number" name="quilometragem" id=""></p>
+	
+		<p>		 
+		<label><b>Associacoes:</b></label>
+        <select name="associacao_codassociacao" required>
+            <option value="">Escolha a associacao</option>
+      	     <option  th:each="associacao:${associacao}"
+                        th:value="${associacao.codassociacao}"
+                    	 th:text="${associacao.nome}"> 
+            </option>  
+        </select>   
+		</p>
+	
+		<p>
+			<label><b>Motoristas:</b></label>
+        <select name="motorista_codigo" required>
+            <option value="">Escolha o motorista</option>
+      	     <option  th:each="motorista:${motorista}"
+                        th:value="${motorista.codmotorista}"
+                    	 th:text="${motorista.nome}"> 
+            </option>  
+        </select>
+	</p>
+			 
 		<p> <input type="submit" value="cadastrar" /> </p>
     </form>
     

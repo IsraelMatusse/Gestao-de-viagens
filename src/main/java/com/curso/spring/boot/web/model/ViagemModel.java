@@ -70,4 +70,16 @@ public class ViagemModel implements Serializable{
 		this.viajante = viajante;
 	}
 	
+	@ManyToOne()
+	private TransporteModel transporte;
+	public TransporteModel getTransporte() {
+		return transporte;
+	}
+	public void setTransporte(TransporteModel transporte) {
+		this.transporte = transporte;
+	}
+	public void setCodviagem(Long codviagem) {
+		this.codviagem = codviagem;
+	}
+	
 }

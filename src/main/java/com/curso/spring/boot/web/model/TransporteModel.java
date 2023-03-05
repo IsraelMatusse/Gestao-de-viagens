@@ -1,11 +1,14 @@
 package com.curso.spring.boot.web.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity(name="transporte")
@@ -135,7 +138,12 @@ public class TransporteModel {
 		return proprietario;
 	}
 	public void setProprietario(ProprietarioModel proprietario) {
-		this.proprietario = proprietario;
-	}
+		this.proprietario=proprietario;
+}
+	
+	@OneToMany(mappedBy="transporte")
+	private List<ViagemModel> viagem;
+	
+
 	
 }

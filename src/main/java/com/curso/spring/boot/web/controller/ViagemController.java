@@ -16,6 +16,7 @@ import com.curso.spring.boot.web.model.ViagemModel;
 import com.curso.spring.boot.web.model.ViajanteModel;
 import com.curso.spring.boot.web.repository.ViagemRepository;
 import com.curso.spring.boot.web.repository.ViajanteRepository;
+import com.curso.spring.boot.web.service.TransporteService;
 import com.curso.spring.boot.web.service.ViagemService;
 import com.curso.spring.boot.web.service.ViajanteService;
 
@@ -27,11 +28,16 @@ public class ViagemController  {
 	private ViagemService viagemservice;
 	@Autowired
 	private ViajanteService viajanteservice;
-	
+	@Autowired
+	private TransporteService transporteservice;
 	
 	@RequestMapping(value="/cadastrarViagem", method=RequestMethod.GET)
-	public String viagem() {
-		return "viagem/viagem";
+	public ModelAndView viagem() {
+		ModelAndView mv= new ModelAndView("viagem/viagem");
+		mv.addObject("viagem", new ViagemModel());
+		mv.addObject("viagem", viagemservice.listarViagens());
+		mv.addObject("transportes", transporteservice.listartransporte() );
+		return mv;
 	}
 	
 	@RequestMapping(value="/cadastrarViagem", method=RequestMethod.POST)

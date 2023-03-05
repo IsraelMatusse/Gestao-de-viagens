@@ -27,6 +27,15 @@
     <input type="time" name="saida" id="" value=""></p>
      <p><label for="prev_chegada">Previsao de chegada</label>
     <input type="time" name="prev_chegada" id="" value=""></p>
+    
+    	<label><b>Proprietarios:</b></label>
+        <select th:field="${viagem.transporte}"required>
+            <option value="">Escolha o motorista</option>
+      	     <option  th:each="motorista:${motoristas}"
+                        th:value="${motorista.codigo}"
+                    	 th:text="${motorista.nome}"> 
+            </option>  
+        </select>
 	<p> <input type="submit" value="cadastrar" </p>
     </form>
     

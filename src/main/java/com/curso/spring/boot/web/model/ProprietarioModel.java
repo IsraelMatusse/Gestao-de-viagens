@@ -60,5 +60,14 @@ public abstract class ProprietarioModel implements Serializable {
 		this.tipolicenca = tipolicenca;
 	}
 
+	@OneToMany(mappedBy="proprietario")
+	private List<TransporteModel> transporte;
+	public List<TransporteModel> getTransporte() {
+		return transporte;
+	}
+	public void setTransporte(List<TransporteModel> transporte) {
+		this.transporte = transporte;
+	}
+	
 
 }

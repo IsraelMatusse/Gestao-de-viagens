@@ -19,27 +19,37 @@
 <body>
 
 	<p> <a href="/"> Listar Viagens </a> </p>
-    <form action="" method="post">
+    <form action=""  method="post">
 
     <p><label for="destino_viagem">Destino</label>
-    <input type="text" name="destino_viagem" id="" value=""></p>
+    <input type="text" name="destino_viagem" value=""></p>
     <p><label for="saida">Hora de saida</label>
-    <input type="time" name="saida" id="" value=""></p>
+    <input type="time" name="saida" value=""></p>
      <p><label for="prev_chegada">Previsao de chegada</label>
-    <input type="time" name="prev_chegada" id="" value=""></p>
+    <input type="time" name="prev_chegada"  value=""></p>
     
-    	<label><b>Proprietarios:</b></label>
+    <!--	<label><b>Transportes:</b></label>
         <select th:field="${viagem.transporte}"required>
-            <option value="">Escolha o motorista</option>
-      	     <option  th:each="motorista:${motoristas}"
-                        th:value="${motorista.codigo}"
-                    	 th:text="${motorista.nome}"> 
+            <option value="">Escolha o transporte</option>
+      	     <option  th:each="transporte:${transporte}"
+                        th:value="${transporte.codtransporte}"
+                    	 th:text="${transporte.matricula}"> 
             </option>  
         </select>
-	<p> <input type="submit" value="cadastrar" </p>
+	
+   
+   <lable> <b> Associacao: </b></lable>
+   <select th:field="${viagem.associacao}" required>
+   <option value=""> escolha a associacao </option>
+   <option th: each="associacao:${associacao}"
+  		 th:value="${associacao.codassociacao}"
+   		 th:text="${associacao.nomeassociacao}">
+   </option>
+   </select>
+   <p> <input type="submit" value="cadastrar" </p>
     </form>
-    
-        
+   
+        -->
     
 	<!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.min.js"></script>

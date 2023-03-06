@@ -29,7 +29,7 @@
 			<p> <span th:text=${viajante.bairro}> </span> </p>
 		</div>
 	
-		<div th:each="viajante:${viajante}" class="container">
+	
 	    <form th:action="@{/associarviajante(cod_viajante=${viajante.codigo})}" method="POST">
         <label><b>Viagens:</b></label>
         <select name="codviagem" required>

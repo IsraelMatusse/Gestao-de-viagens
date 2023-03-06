@@ -1,5 +1,7 @@
 package com.curso.spring.boot.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,24 +45,33 @@ public class ViajanteController {
 		return"redirect:/viajante";
 	}
 	
-	@GetMapping("detalhesviajante/{cod_viajante}")
-	public ModelAndView detalhesviajante(@PathVariable("cod_viajante") Long cod_viajante, @ModelAttribute ViajanteModel viajante) {
+	@GetMapping("/detalhesviajante/{cod_viajante}")
+	public ModelAndView detalhesviajante(@PathVariable(name="cod_viajante") Long cod_viajante) {
+		ViajanteModel viajante= viajanteservice.ListarporCodigo(cod_viajante);
 		ModelAndView mv= new ModelAndView("viajante/detalhesviajante");
-		mv.addObject("viajante", viajanteservice.ListarporCodigo(cod_viajante));
-		mv.addObject("viagem", viagemservice.listarViagens());
+		mv.addObject("viajante", viajante);
+		List <ViagemModel> viagemnaoassociada=  viagemservice.listarViagens();
+		viagemnaoassociada.removeAll(viajante.getViagem());
+		mv.addObject("viagem", viagemnaoassociada);
+		
 		return mv;
 	}
-	
-	@RequestMapping( value="associarviajante", method=RequestMethod.POST)
-	public String viagemviajante(@RequestParam("cod_viajante") Long cod_viajante, @ModelAttribute ViagemModel viagem ) {
-		
+
+
+	@RequestMapping( value="/associarviajante", method=RequestMethod.POST)
+	public String viagemviajante( ViagemModel viagem, @RequestParam("cod_viajante") Long cod_viajante ) {
 		ViajanteModel viajante=viajanteservice.ListarporCodigo(cod_viajante);
 		viagem=viagemservice.listarporCodigo(viagem.getCodviagem());
 		viajante.getViagem().add(viagem);
 		viajanteservice.salvarViajante(viajante);
-		return "redirect:detalhesviajante/{cod_viajante}";
+		return "redirect:/detalhesviajante/"+ cod_viajante;
 		
 		
 		
 	}
-}
+		
+		
+		
+		
+	}
+

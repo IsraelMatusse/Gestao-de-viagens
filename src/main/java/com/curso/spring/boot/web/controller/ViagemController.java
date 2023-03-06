@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import com.curso.spring.boot.web.model.ViagemModel;
 import com.curso.spring.boot.web.model.ViajanteModel;
 import com.curso.spring.boot.web.repository.ViagemRepository;
 import com.curso.spring.boot.web.repository.ViajanteRepository;
+import com.curso.spring.boot.web.service.AssociacaoService;
 import com.curso.spring.boot.web.service.TransporteService;
 import com.curso.spring.boot.web.service.ViagemService;
 import com.curso.spring.boot.web.service.ViajanteService;
@@ -25,23 +27,25 @@ import com.curso.spring.boot.web.service.ViajanteService;
 public class ViagemController  {
 
 	@Autowired
-	private ViagemService viagemservice;
+	 ViagemService viagemservice;
 	@Autowired
-	private ViajanteService viajanteservice;
+	 ViajanteService viajanteservice;
 	@Autowired
-	private TransporteService transporteservice;
+	 TransporteService transporteservice;
+	@Autowired 
+	AssociacaoService associacaoservice;
 	
-	@RequestMapping(value="/cadastrarViagem", method=RequestMethod.GET)
+	@RequestMapping(value="/viagem", method=RequestMethod.GET)
 	public ModelAndView viagem() {
 		ModelAndView mv= new ModelAndView("viagem/viagem");
 		mv.addObject("viagem", new ViagemModel());
-		mv.addObject("viagem", viagemservice.listarViagens());
-		mv.addObject("transportes", transporteservice.listartransporte() );
+		mv.addObject("associacao", associacaoservice.listarassociacao());
+		mv.addObject("transporte", transporteservice.listartransporte() );
 		return mv;
 	}
 	
-	@RequestMapping(value="/cadastrarViagem", method=RequestMethod.POST)
-	public String viagem(ViagemModel viagem) {
+	@RequestMapping(value="/viagem", method=RequestMethod.POST)
+	public String viagem(@ModelAttribute("viagem")ViagemModel viagem) {
 		viagemservice.salvarViagem(viagem);
 		return "redirect:/cadastrarViagem";
 	}

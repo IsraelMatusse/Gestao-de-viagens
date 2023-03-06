@@ -143,6 +143,12 @@ public class TransporteModel {
 	
 	@OneToMany(mappedBy="transporte")
 	private List<ViagemModel> viagem;
+	public List<ViagemModel> getViagem() {
+		return viagem;
+	}
+	public void setViagem(List<ViagemModel> viagem) {
+		this.viagem = viagem;
+	}
 	
 
 	

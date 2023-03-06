@@ -32,21 +32,18 @@
 		<p> <strong> Cidade da associacao: </strong> <span th:text="${associacao.cidadeassociacao}"> </span> </p>
 		</div>
 		
-		<h4> Cdastro de transporte da associacao </h4>
-			<form method="POST">
-		<p> <label for="marca"> Marca </label > <input type="text" value="" name="marca" />
-		 <p> <label for="modelo"> Modelo </label > <input type="text" value="" name="modelo" />
-		 <p> <label for="cor"> Cor </label > <input type="text" value="" name="cor" />
-		  <p> <label for="matricula"> Matricula </label > <input type="text" value="" name="matricula" />
-		   <p> <label for="Lotacao"> Lotacao </label > <input type="number" value="" name="lotacao"/>
-		  <p> <label for="nrportas"> Numero de portas </label > <input type="number" value="" name="nrportas"/>
-		  <p> <label for="anofabrico"> Ano de fabrico </label > <input type="number" value="" name="anofabrico"/>
-			 <p> <label for="nrmotor"> Numero do motor </label > <input type="text" value="" name="nrmotor"/>
-			  <p> <label for="pesobruto"> Peso bruto </label > <input type="number" value="" name="pesobruto"/>
-		<p> <input type="submit" value="cadastrar" /> </p>
-		</form>
-		
-		</div>
+		 <form th:action="@{/associarrota(cod_associacao=${associacao.codassociacao})}" method="POST">
+        <label><b>Rotas:</b></label>
+        <select name="codrota" required>
+            <option value="">Escolha a Rota</option>
+      	     <option  th:each="rota:${rota}"
+                        th:value="${rota.codrota}"
+                    	 th:text="${rota.nomerota}"> 
+            </option>  
+        </select>   
+        <input type="submit" value="Associar viagem" />
+    </form>
+	
 		
 		
 		

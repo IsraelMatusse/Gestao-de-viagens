@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity(name="rota")
@@ -37,13 +39,16 @@ public class RotaModel {
 		this.distancia = distancia;
 	}
 	
-	@ManyToMany(mappedBy="rotas")
-	private List<AssociacaoModel> associacoes;
-	public List<AssociacaoModel> getAssociacoes() {
-		return associacoes;
+	@ManyToMany
+	@JoinTable(name="associacao_rota",
+	joinColumns= @JoinColumn(name="rota_fk"),
+	inverseJoinColumns = @JoinColumn(name="associacao_fk"))
+	private List<AssociacaoModel> associacao;
+	public List<AssociacaoModel> getAssociacao() {
+		return associacao;
 	}
-	public void setAssociacoes(List<AssociacaoModel> associacoes) {
-		this.associacoes = associacoes;
+	public void setAssociacao(List<AssociacaoModel> associacao) {
+		this.associacao = associacao;
 	}
 	
 }

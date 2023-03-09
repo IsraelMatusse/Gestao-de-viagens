@@ -39,15 +39,16 @@ public class ViagemController  {
 	public ModelAndView viagem() {
 		ModelAndView mv= new ModelAndView("viagem/viagem");
 		mv.addObject("viagem", new ViagemModel());
-		mv.addObject("associacao", associacaoservice.listarassociacao());
-		mv.addObject("transporte", transporteservice.listartransporte() );
+		mv.addObject("viagens", viagemservice.listarViagens());
+		mv.addObject("associacoes", associacaoservice.listarassociacao());
+		mv.addObject("transportes", transporteservice.listartransporte() );
 		return mv;
 	}
 	
-	@RequestMapping(value="/viagem", method=RequestMethod.POST)
+	@RequestMapping(value="/salvarviagem", method=RequestMethod.POST)
 	public String viagem(@ModelAttribute("viagem")ViagemModel viagem) {
 		viagemservice.salvarViagem(viagem);
-		return "redirect:/cadastrarViagem";
+		return "redirect:/viagem";
 	}
 	
 	@RequestMapping(value="/",  method=RequestMethod.GET)

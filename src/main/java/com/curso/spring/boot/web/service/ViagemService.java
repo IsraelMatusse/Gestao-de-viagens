@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.curso.spring.boot.web.model.ViagemModel;
 import com.curso.spring.boot.web.repository.ViagemRepository;
 
-@Transactional
+
 @Service
 public class ViagemService {
 	

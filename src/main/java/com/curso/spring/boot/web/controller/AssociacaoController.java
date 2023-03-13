@@ -1,6 +1,7 @@
 package com.curso.spring.boot.web.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +22,7 @@ import com.curso.spring.boot.web.model.RotaModel;
 import com.curso.spring.boot.web.repository.AssociacaoRepository;
 import com.curso.spring.boot.web.service.AssociacaoService;
 import com.curso.spring.boot.web.service.RotaService;
+
 
 @Controller
 public class AssociacaoController {
@@ -105,15 +108,15 @@ public class AssociacaoController {
 	}
 	
 	@PostMapping("/update/{cod_associacao}")
-	public String updateassociacao(@PathVariable("cod_associacao") long cod_associacao, AssociacaoModel associacao, 
-	  BindingResult result, Model model) {
-	    if (result.hasErrors()) {
-	        associacao.setCodassociacao(cod_associacao);
-	        return "associacao/updateassociacao";
-	    }
-	        
-	    associacaoservice.cadastrarassociacao(associacao);
-	    return "redirect:associacao/listarAssociacao";
+	public String udpateassociacao(@PathVariable ("cod_associacao") Long cod_associacao, AssociacaoModel associacaod) {
+		Optional<AssociacaoModel> associacao= Optional.ofNullable(associacaoservice.listarporcodigo(cod_associacao));
+		associacao.get().setBairroassociacao(associacaod.getBairroassociacao());
+		associacao.get().setCidadeassociacao(associacaod.getCidadeassociacao());
+		associacao.get().setContacto_associacao(associacaod.getContactoassociacao());
+		associacao.get().setEmailassociacao(associacaod.getEmailassociacao());
+		associacao.get().setNomeassociacao(associacaod.getNomeassociacao());
+		associacaoservice.cadastrarassociacao(associacao.get());
+		return"redirect:/listarAssociacao";
 	}
 	
 	@GetMapping("/delete/{cod_associacao}")
@@ -121,6 +124,6 @@ public class AssociacaoController {
 	   AssociacaoModel associacao= associacaoservice.listarporcodigo(cod_associacao);
 	     
 	      associacaoservice.apagarassociacao(cod_associacao , associacao);
-	    return "associacao/listarAssociacao";
+	    return "redirect:/listarAssociacao";
 	}
 }

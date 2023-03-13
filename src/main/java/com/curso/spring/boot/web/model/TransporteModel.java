@@ -2,6 +2,7 @@ package com.curso.spring.boot.web.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -114,7 +115,7 @@ public class TransporteModel {
 	
 
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.DETACH)
 	private AssociacaoModel associacao;
 	public AssociacaoModel getAssociacao() {
 		return associacao;
@@ -125,7 +126,7 @@ public class TransporteModel {
 	@OneToOne
 	private MotoristaModel motorista;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.DETACH)
 	private ProprietarioModel proprietario;
 	public MotoristaModel getMotorista() {
 		return motorista;
@@ -141,7 +142,7 @@ public class TransporteModel {
 		this.proprietario=proprietario;
 }
 	
-	@OneToMany(mappedBy="transporte")
+	@OneToMany(mappedBy="transporte", cascade = CascadeType.ALL)
 	private List<ViagemModel> viagem;
 	public List<ViagemModel> getViagem() {
 		return viagem;

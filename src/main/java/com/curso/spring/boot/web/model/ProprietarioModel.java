@@ -60,7 +60,7 @@ public abstract class ProprietarioModel implements Serializable {
 		this.tipolicenca = tipolicenca;
 	}
 
-	@OneToMany(mappedBy="proprietario")
+	@OneToMany(mappedBy="proprietario", cascade = CascadeType.ALL)
 	private List<TransporteModel> transporte;
 	public List<TransporteModel> getTransporte() {
 		return transporte;

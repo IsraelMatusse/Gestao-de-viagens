@@ -60,7 +60,7 @@ public class AssociacaoModel implements Serializable{
 		this.contactoassociacao = contacto_associacao;
 	}
 	
-	@OneToMany(mappedBy="associacao", cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy="associacao", cascade = CascadeType.ALL)
 	private List<ViagemModel> viagens;
 	public List<ViagemModel> getViagens() {
 		return viagens;

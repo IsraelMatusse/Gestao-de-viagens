@@ -25,5 +25,30 @@ public class AssociacaoService {
 	public AssociacaoModel listarporcodigo(Long cod_associacao) {
 		return ar.findByCodassociacao(cod_associacao);
 	}
+	
+	public AssociacaoModel listarpornome(String nomeassociacao) {
+		return ar.findByNomeassociacao(nomeassociacao);
+	}
 
+	public AssociacaoModel listarporemail(String emailassociacao) {
+		return ar.findByEmailassociacao(emailassociacao);
+	}
+	
+	public void apagarpornome(String nomeassociacao, AssociacaoModel associacao) {
+		 associacao=ar.findByNomeassociacao(nomeassociacao);
+		ar.delete(associacao);	
+	}
+	public void apagarporemail(String emailassociacao, AssociacaoModel associacao) {
+		associacao=ar.findByEmailassociacao(emailassociacao);
+		ar.delete(associacao);
+		
+	}
+	
+	 public List<AssociacaoModel> getByKeyword(String keyword){
+		  return ar.findByKeyword(keyword);
+		 }
+	 public void apagarassociacao(Long cod_associacao, AssociacaoModel associacao) {
+		 ar.delete(associacao);
+	 }
+	 
 }

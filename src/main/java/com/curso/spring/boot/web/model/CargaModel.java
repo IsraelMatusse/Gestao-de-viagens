@@ -12,6 +12,6 @@ public class CargaModel {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codcarga;
 	
-	private String nomeproduto;
+	private String designacao;
 	private Long peso;
 }

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +39,17 @@ public class AssociacaoController {
 		 return "redirect:/cadastrarAssociacao";
 	 }
 	
-	@RequestMapping(value="/listarAssociacao", method=RequestMethod.GET)
-	public ModelAndView listarAssociacao() {
-		ModelAndView mv= new ModelAndView("associacao/ListarAssociacao");
-		
-		mv.addObject("associacoes", associacaoservice.listarassociacao());
-		return mv;
-	}
+	 @RequestMapping(path = {"/listarAssociacao","/search"})
+	 public String listarassociacao(Model model, String keyword) {
+	  if(keyword!=null) {
+	   List<AssociacaoModel> associacao = associacaoservice.getByKeyword(keyword);
+	   model.addAttribute("associacao", associacao);
+	  }else {
+	  List<AssociacaoModel> associacao = associacaoservice.listarassociacao();
+	  model.addAttribute("associacao", associacao);}
+	  return "associacao/listarAssociacao";
+	 }
+	
 	@GetMapping("/detalhesassociacao/{cod_associacao}")
 	public ModelAndView detalhesAssociacao( @PathVariable("cod_associacao") Long cod_associacao) {	
 		ModelAndView mv= new ModelAndView("associacao/detalhesAssociacao");
@@ -62,5 +68,59 @@ public class AssociacaoController {
 		associacao.getRotas().add(rota);
 		associacaoservice.cadastrarassociacao(associacao);
 		return "redirect: /detalhesassociacao/"+cod_associacao;
+	}
+	
+	/*
+	@RequestMapping(path={"/listarAssociacao","/nomeassociacao"})
+	public ModelAndView listarpornome(@PathVariable("nomeassociacao") String nomeassociacao) {
+		ModelAndView mv= new ModelAndView("associacao/pesquisas");
+		AssociacaoModel associacao =associacaoservice.listarpornome(nomeassociacao);
+		mv.addObject("ässociacao", associacao);
+		return mv;
+	}
+	
+	@GetMapping("/listarpoemail")
+	public AssociacaoModel listarporemail(@PathVariable("emailassociacao") String emailassociacao) {
+	AssociacaoModel associacao= associacaoservice.listarporemail(emailassociacao);
+	return associacao;
+	}
+	
+	@RequestMapping("/apagarpornome")
+	public void apagarpornome(@RequestParam("nomeassociacao") String nomeassociacao, AssociacaoModel associacao) {
+		associacaoservice.apagarpornome(nomeassociacao, associacao);
+	}
+	
+	@RequestMapping("/apagarporemail")
+	public void apagarporemail(@RequestParam("emailassociacao") String emailassociacao, AssociacaoModel associacao) {
+		associacaoservice.apagarporemail(emailassociacao, associacao);
+	}
+	*/
+	
+	@GetMapping("/edit/{cod_associacao}")
+	public String showUpdateForm(@PathVariable("cod_associacao") long cod_associacao, Model model) {
+	    AssociacaoModel associacao = associacaoservice.listarporcodigo(cod_associacao);
+	    
+	    model.addAttribute("associacao", associacao);
+	    return "associacao/updateassociacao";
+	}
+	
+	@PostMapping("/update/{cod_associacao}")
+	public String updateassociacao(@PathVariable("cod_associacao") long cod_associacao, AssociacaoModel associacao, 
+	  BindingResult result, Model model) {
+	    if (result.hasErrors()) {
+	        associacao.setCodassociacao(cod_associacao);
+	        return "associacao/updateassociacao";
+	    }
+	        
+	    associacaoservice.cadastrarassociacao(associacao);
+	    return "redirect:associacao/listarAssociacao";
+	}
+	
+	@GetMapping("/delete/{cod_associacao}")
+	public String deleteassociacao(@PathVariable("cod_associacao") long cod_associacao, Model model) {
+	   AssociacaoModel associacao= associacaoservice.listarporcodigo(cod_associacao);
+	     
+	      associacaoservice.apagarassociacao(cod_associacao , associacao);
+	    return "associacao/listarAssociacao";
 	}
 }

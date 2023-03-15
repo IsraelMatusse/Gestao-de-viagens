@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.curso.spring.boot.web.model.AssociacaoModel;
 import com.curso.spring.boot.web.model.ViagemModel;
 import com.curso.spring.boot.web.repository.ViagemRepository;
 
@@ -27,5 +28,12 @@ public class ViagemService {
 	public ViagemModel listarporCodigo(Long cod_viagem) {
 		return vr.findBycodviagem(cod_viagem);
 	}
+	
+	 public List<ViagemModel> getByKeyword(String keyword){
+		  return vr.findByKeyword(keyword);
+		 }
+	 public void apagarviagem(Long cod_viagem, ViagemModel viagem) {
+		 vr.delete(viagem);
+	 }
 
 }

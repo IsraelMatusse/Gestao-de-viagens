@@ -29,6 +29,16 @@ public class ViagemModel implements Serializable{
 	private String saida;
 	@Column(nullable=false)
 	private String prev_chegada;
+	@Column(nullable=false)
+	
+	
+	private String chaveviagem;
+	public String getChaveviagem() {
+		return chaveviagem;
+	}
+	public void setChaveviagem(String chaveviagem) {
+		this.chaveviagem = chaveviagem;
+	}
 	public String getDestino_viagem() {
 		return destino_viagem;
 	}

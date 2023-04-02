@@ -22,6 +22,7 @@ import com.curso.spring.boot.web.model.ViagemModel;
 import com.curso.spring.boot.web.model.ViajanteModel;
 import com.curso.spring.boot.web.repository.ViagemRepository;
 import com.curso.spring.boot.web.repository.ViajanteRepository;
+import com.curso.spring.boot.web.repository.ViajantesDestino;
 import com.curso.spring.boot.web.service.AssociacaoService;
 import com.curso.spring.boot.web.service.TransporteService;
 import com.curso.spring.boot.web.service.ViagemService;
@@ -102,6 +103,16 @@ public class ViagemController  {
 	    return "redirect:/listarviagem";
 	}
 	
+	 @RequestMapping(path = {"/listarviagens","/findbydestino"})
+	 public String findbydestino(Model model, String destino_viagem) {
+	  if(destino_viagem!=null) {
+	   List<ViajantesDestino> viajantesdestino = viagemservice.viajantesdestino(destino_viagem);
+	   model.addAttribute("viajantesdestino",viajantesdestino);
+	  }else {
+	  List<ViagemModel> viagem = viagemservice.listarViagens();
+	  model.addAttribute("viagem", viagem);}
+	  return "Estatisticas/viagem";
+	 }
 
 	
 }

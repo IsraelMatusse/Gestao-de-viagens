@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.curso.spring.boot.web.model.MotoristaModel;
 import com.curso.spring.boot.web.model.TransporteModel;
 import com.curso.spring.boot.web.repository.TransporteRepository;
+import com.curso.spring.boot.web.repository.Viagensrealizadas;
+
+import DTO.TransporteDTO;
 
 @Transactional
 @Service
@@ -27,6 +30,19 @@ public class TransporteService {
 	
 	public TransporteModel listarporcodigo(Long cod_transporte) {
 		return tr.findByCodtransporte(cod_transporte);
+	}
+	
+	public void apagartransporte(Long cod_transporte, TransporteModel transporte) {
+	tr.delete(transporte);	
+	}
+	
+	public List<TransporteModel> getByKeyword(String keyword) {
+		return tr.findByKeyword(keyword);
+	}
+	
+	public List<Viagensrealizadas> viagensrealizadas(){
+		return tr.viagensrealizadas();
+		
 	}
 
 }

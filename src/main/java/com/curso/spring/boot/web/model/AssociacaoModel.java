@@ -8,7 +8,6 @@ import java.util.List;
 import javax.persistence.*;
 
 
-
 @Entity
 @Table(name="associacao")
 public class AssociacaoModel implements Serializable{
@@ -18,11 +17,16 @@ public class AssociacaoModel implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long codassociacao;
+	@Column(nullable=false)
 	private String nomeassociacao;
+	@Column(nullable=false)
 	private String bairroassociacao;
+	@Column(nullable=false)
 	private String cidadeassociacao;
+	@Column(nullable=false)
 	private String emailassociacao;
-	private Double contactoassociacao;
+	@Column(nullable=false)
+	private int contactoassociacao;
 	public Long getCodassociacao() {
 		return codassociacao;
 	}
@@ -53,10 +57,10 @@ public class AssociacaoModel implements Serializable{
 	public void setEmailassociacao(String email_associacao) {
 		this.emailassociacao = email_associacao;
 	}
-	public Double getContactoassociacao() {
+	public int getContactoassociacao() {
 		return contactoassociacao;
 	}
-	public void setContacto_associacao(Double contacto_associacao) {
+	public void setContacto_associacao(int contacto_associacao) {
 		this.contactoassociacao = contacto_associacao;
 	}
 	
@@ -68,7 +72,7 @@ public class AssociacaoModel implements Serializable{
 	public void setViagens(List<ViagemModel> viagens) {
 		this.viagens = viagens;
 	}
-	public void setContactoassociacao(Double contactoassociacao) {
+	public void setContactoassociacao(int contactoassociacao) {
 		this.contactoassociacao = contactoassociacao;
 	}
 

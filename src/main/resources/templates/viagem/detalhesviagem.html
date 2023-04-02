@@ -17,7 +17,7 @@
 <body>
 
 	<h1> Viagem </h1>
-		<h3> <a href="/"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Listar Viagem </a> </h3>
+		<h3> <a href="/listarviagem"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Listar Viagem </a> </h3>
 	<div th:each="viagem:${viagem}" class="container">
 		<div class="row">
 			<p> <span th:text="${viagem.destino_viagem}"> </span></p>

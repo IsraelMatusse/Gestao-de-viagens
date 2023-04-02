@@ -20,19 +20,28 @@
 
 	<h4>  Lista de viagens </h4>
 	<h3> <a href="/viagem"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar Viagem </a> </h3>
+		 <form th:action="@{/searchviagem}"  method="get" >
+		 	<input type="text" name="keyword" th:value="${keyword}" placeholder="pesquise uma viagem" />
+		 	<input type="submit" value="pesquisar" />
+		 	<input type="reset" value="apagar" />
+		 </form>
 	<table class="container">
 		<thead>
 			<tr>
 				<th> Destino da Viagem</th>
 				<th>Previsao da hora de chegada</th>
 				<th> Hora de saida </th>
+				<th> Edit </th>
+				<th> Delete </th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="viagem:${viagens}">
+			<tr th:each="viagem:${viagem}">
 			<td> <a th:href="${(#mvc.url('VC#detalhesViagem').arg(0, viagem.codviagem)).build()}"> <span th:text=${viagem.destino_viagem}></span></a></td>
 			<td> <span th:text=${viagem.prev_chegada}> </span> </td>
 			<td><span th:text=${viagem.saida}> </span> </td>
+			<td> <a th:href="@{/editviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}"> Edit </a></td>
+				<td><a th:href="@{/deleteviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}">Delete</a></td>
 			</tr>
 		</tbody>
 	</table>

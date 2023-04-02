@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos</title>
+</head>
+<body>
+    <h1>Lista  de transportes e seu numero de viagens></h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Matricuka</th>
+                <th>Viagens realizadas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="numeroviagens : ${numeroviagens}">
+                <td th:text="${numeroviagens.matricula}"></td>
+                <td th:text="${numeroviagens.NumeroViagens}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

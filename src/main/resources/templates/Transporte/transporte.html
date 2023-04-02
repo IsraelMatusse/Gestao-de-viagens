@@ -14,19 +14,19 @@
 
     <form th:action="@{/transporte}" th:object="${transporte}"  method="post">
 
-	<p> <label for="marca"> Marca </label > <input type="text" value="" name="marca" /> </p>
-	<p> <label for="modedelo"> Modelo </label > <input type="text" value="" name="modelo" />  </p>
-			   <p> <label for="anonafabrico"> ano de fabrico </label > <input type="number" value="" name="anofabrico"/></p>
-	  <p> <label for="cor"> Cor </label > <input type="text" value="" name="cor"/> </p>
-	  <p>  <label for="matricula"> Matricula </label > <input type="text" value="" name="matricula" /> </p>
-	  	<p> <label for="Cidade"> Cidade </label > <input type="text" value="" name="Cidade"/> </p>
-		  	<p> <label for="nrmotor"> nr do motor </label > <input type="text" value="" name="nrmotor"/>
-		  	</p><label for="tipo"> Tipo  </label > <input type="text" value="" name="tipo"/> </p>
-			 <p> <label for="pesobruto"> Peso bruto </label > <input type="number" value="" name="pesobruto"/> </p>
-			 <p> <label for="nrportas" > Numero de portas </label> <input type="number" name="nrportas"> </p>
-			 <p> <label for="lotacao" > Lotacao </label> <input type="number" name="lotacao"> </p>
-			 <p><label for="combustivel">Combustivel</label> <input type="text" name="combustivel"></p>
-			 <p><label for="quilometrgem">Quilometragem</label> <input type="number" name="quilometragem" id=""></p>
+	<p> <label for="marca"> Marca </label > <input type="text" required  value="" name="marca" /> </p>
+	<p> <label for="modedelo"> Modelo </label > <input type="text" required  value="" name="modelo" />  </p>
+			   <p> <label for="anonafabrico"> ano de fabrico </label > <input type="number" required  value="" name="anofabrico"/></p>
+	  <p> <label for="cor"> Cor </label > <input type="text" required  value="" name="cor"/> </p>
+	  <p>  <label for="matricula"> Matricula </label > <input type="text" value="" required  name="matricula" /> </p>
+	  	<p> <label for="Cidade"> Cidade </label > <input type="text" value="" required  name="Cidade"/> </p>
+		  	<p> <label for="nrmotor"> nr do motor </label > <input type="text" required  value="" name="nrmotor"/>
+		  	</p><label for="tipo"> Tipo  </label > <input type="text" value="" required  name="tipo"/> </p>
+			 <p> <label for="pesobruto"> Peso bruto </label > <input type="number" required  value="" name="pesobruto"/> </p>
+			 <p> <label for="nrportas" > Numero de portas </label> <input type="number" required  name="nrportas"> </p>
+			 <p> <label for="lotacao" > Lotacao </label> <input type="number" name="lotacao" required > </p>
+			 <p><label for="combustivel">Combustivel</label> <input type="text" name="combustivel" required ></p>
+			 <p><label for="quilometrgem">Quilometragem</label> <input type="number" required  name="quilometragem" id=""></p>
 	
 	 
 		<label><b>Associacoes:</b></label>
@@ -56,6 +56,15 @@
       	     <option  th:each="proprietario:${proprietarios}"
                         th:value="${proprietario.codproprietario}"
                     	 th:text="${proprietario.nome}"> 
+            </option>  
+        </select>
+        
+        	<label><b>Rota:</b></label>
+        <select th:field="${transporte.rota}"required>
+            <option value="">Escolha uma rota</option>
+      	     <option  th:each="rota:${rotas}"
+                        th:value="${rota.codrota}"
+                    	 th:text="${rota.nomerota}"> 
             </option>  
         </select>
 		 

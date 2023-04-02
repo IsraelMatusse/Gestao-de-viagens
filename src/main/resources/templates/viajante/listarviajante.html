@@ -20,6 +20,13 @@
 
 	<h4>  Lista de viagens </h4>
 	<h3> <a href="/viajante"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar Viagem </a> </h3>
+		<p>
+	 <form th:action="@{/searchviajante}" method="get" >
+			<input type=text name="keyword" th:value="${keyword}" placeholder="pesquise um viajante" >
+			<input type="submit" value="pesquise">
+			<input type="reset" value="apagar" >
+		</form>
+	</p>
 	<table class="container">
 		<thead>
 			<tr>
@@ -30,6 +37,8 @@
 				<th>Provincia</th>
 				<th>Cidade</th>
 				<th>Bairro</th>
+				<th>Edit</th>
+				<th>Delete</th>
 								
 			</tr>
 		</thead>
@@ -42,6 +51,8 @@
 			<td> <span th:text=${viajante.provincia}> </span> </td>
 			<td> <span th:text=${viajante.cidade}> </span> </td>
 			<td> <span th:text=${viajante.bairro}> </span> </td>
+			<td><a th:href="@{/editviajante/{cod_viajante}(cod_viajante=${viajante.codigo})}">Edit</a></td>
+       		<td><a th:href="@{/deleteviajante/{cod_viajante}(cod_viajante=${viajante.codigo})}">Delete</a></td>
 			</tr>
 		</tbody>
 	</table>

@@ -2,10 +2,12 @@ package com.curso.spring.boot.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.curso.spring.boot.web.model.Proprietario_EmpresaModel;
 import com.curso.spring.boot.web.repository.ProprietarioempresaRepository;
@@ -22,8 +24,13 @@ public class Proprietario_empresaController {
 	}
 	
 	@PostMapping("/proprietarioempresa")
-	public String cadastrarProprietarioEmpresa(Proprietario_EmpresaModel propempresa) {
+	public String cadastrarProprietarioEmpresa(Proprietario_EmpresaModel propempresa, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "verifique os campos");
+			return "redirect:/proprietarioempresa";
+		}
 		per.save(propempresa);
+		attributes.addFlashAttribute("mensagem", "Cadastro efectuado com sucesso");
 		return "redirect:/proprietarioempresa";
 	}
 	

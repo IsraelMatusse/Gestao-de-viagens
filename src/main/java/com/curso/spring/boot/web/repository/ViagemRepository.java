@@ -13,6 +13,6 @@ public interface ViagemRepository extends CrudRepository<ViagemModel, String>{
 
 	ViagemModel findBycodviagem(Long cod_viagem);
 	
-	 @Query(value = "select * from viagem s where s.destinoviagem like %:keyword% like %:keyword%", nativeQuery = true)
+	 @Query(value = "select * from viagem s where s.destino_viagem like %:keyword%", nativeQuery = true)
 	 List<ViagemModel> findByKeyword(@Param("keyword") String keyword);
 }

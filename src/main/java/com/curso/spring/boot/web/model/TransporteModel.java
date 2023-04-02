@@ -3,6 +3,7 @@ package com.curso.spring.boot.web.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -98,23 +99,31 @@ public class TransporteModel {
 	public void setCodtransporte(Long codtransporte) {
 		this.codtransporte = codtransporte;
 	}
-
+	@Column(nullable=false)
 	private String matricula;
+	@Column(nullable=false)
 	private String cor;
+	@Column(nullable=false)
 	private String marca;
+	@Column(nullable=false)
 	private String modelo;
+	@Column(nullable=false)
 	private Long lotacao;
+	@Column(nullable=false)
 	private Long pesobruto;
+	@Column(nullable=false)
 	private String tipo;
+	@Column(nullable=false)
 	private Long anofabrico;
+	@Column(nullable=false)
 	private Long quilometragem;
+	@Column(nullable=false)
 	private String combustivel;
+	@Column(nullable=false)
 	private String nrmotor;
+	@Column(nullable=false)
 	private Long nrportas;
-	
-	
 
-	
 	@ManyToOne(cascade = CascadeType.DETACH)
 	private AssociacaoModel associacao;
 	public AssociacaoModel getAssociacao() {
@@ -150,6 +159,16 @@ public class TransporteModel {
 	public void setViagem(List<ViagemModel> viagem) {
 		this.viagem = viagem;
 	}
+	
+	@ManyToOne(cascade = CascadeType.DETACH)
+	private RotaModel rota;
+	public RotaModel getRota() {
+		return rota;
+	}
+	public void setRota(RotaModel rota) {
+		this.rota = rota;
+	}
+	
 	
 
 	

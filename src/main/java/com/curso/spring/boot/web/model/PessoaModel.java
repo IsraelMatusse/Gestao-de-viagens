@@ -2,6 +2,7 @@ package com.curso.spring.boot.web.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,14 +17,29 @@ public abstract class PessoaModel implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	private Long codigo;
+	@Column(nullable=false)
 	private String nome;
+	@Column(nullable=false)
 	private String apelido;
+	@Column(nullable=false)
 	private Long anonascimento;
+	@Column(nullable=false)
 	private String bairro;
+	@Column(nullable=false)
 	private String email;
+	@Column(nullable=false)
 	private String cidade;
+	@Column(nullable=false)
 	private String provincia ;
+	@Column(nullable=false)
+	private String BI;
 
+	public String getBI() {
+		return BI;
+	}
+	public void setBI(String bI) {
+		BI = bI;
+	}
 	public String getNome() {
 		return nome;
 	}

@@ -20,6 +20,11 @@
 
 	<h4>  Lista de motoristas</h4>
 	<h3> <a href="/cadastrarmotorista"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar Motorista </a> </h3>
+	<form th:action="@{/searchmotorista}"  method="get" >
+		 	<input type="text" name="keyword" th:value="${keyword}" placeholder="pesquise um motorista" />
+		 	<input type="submit" value="pesquisar" />
+		 	<input type="reset" value="apagar" />
+		 </form>
 	<table class="container">
 		<thead>
 			<tr>
@@ -32,11 +37,13 @@
 				<th> Cidade </th>
 				<th> Nr carta</th>
 				<th> Nivel da carta </th>
+				<th> Edit </th>
+				<th> Delete </th>
 				
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="motorista:${motoristas}">
+			<tr th:each="motorista:${motorista}">
 			<td> <a th:href="${(#mvc.url('MC#detalhesmotorista').arg(0, motorista.codigo)).build()}"> <span th:text=${motorista.nome}></span></a></td>
 			<td> <span th:text=${motorista.apelido}> </span> </td>
 			<td><span th:text=${motorista.anonascimento}> </span> </td>
@@ -46,6 +53,8 @@
 			<td><span th:text=${motorista.cidade}> </span> </td>
 			<td><span th:text=${motorista.nrcarta}> </span> </td>
 			<td><span th:text=${motorista.nivelcarta}> </span> </td>
+			<td><a th:href="@{/editmotorista/{cod_motorista}(cod_motorista=${motorista.codigo})}">Edit</a></td>
+       		<td><a th:href="@{/deletemotorista/{cod_motorista}(cod_motorista=${motorista.codigo})}">Delete</a></td>
 			</tr>
 		</tbody>
 	</table>

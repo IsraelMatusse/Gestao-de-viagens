@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.curso.spring.boot.web.model.AssociacaoModel;
 import com.curso.spring.boot.web.model.RotaModel;
@@ -37,12 +39,17 @@ public class AssociacaoController {
 	}
 	
 	@RequestMapping(value="/cadastrarAssociacao", method=RequestMethod.POST)
-	 public String cadastrarViagem( AssociacaoModel associacao) {
+	 public String cadastrarViagem( @Validated AssociacaoModel associacao, BindingResult result, RedirectAttributes attributes) {
+		if(result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "verifica os dados");
+			return "redirect:/cadastrarAssociacao";
+		}
 		associacaoservice.cadastrarassociacao(associacao);
+		attributes.addFlashAttribute("mensagem", "dados cadastrados com sucesso");
 		 return "redirect:/cadastrarAssociacao";
 	 }
 	
-	 @RequestMapping(path = {"/listarAssociacao","/search"})
+	 @RequestMapping(path = {"/listarAssociacao","/searchassociacao"})
 	 public String listarassociacao(Model model, String keyword) {
 	  if(keyword!=null) {
 	   List<AssociacaoModel> associacao = associacaoservice.getByKeyword(keyword);
@@ -99,7 +106,7 @@ public class AssociacaoController {
 	}
 	*/
 	
-	@GetMapping("/edit/{cod_associacao}")
+	@GetMapping("/editassociacao/{cod_associacao}")
 	public String showUpdateForm(@PathVariable("cod_associacao") long cod_associacao, Model model) {
 	    AssociacaoModel associacao = associacaoservice.listarporcodigo(cod_associacao);
 	    
@@ -107,7 +114,7 @@ public class AssociacaoController {
 	    return "associacao/updateassociacao";
 	}
 	
-	@PostMapping("/update/{cod_associacao}")
+	@PostMapping("/updateassociacao/{cod_associacao}")
 	public String udpateassociacao(@PathVariable ("cod_associacao") Long cod_associacao, AssociacaoModel associacaod) {
 		Optional<AssociacaoModel> associacao= Optional.ofNullable(associacaoservice.listarporcodigo(cod_associacao));
 		associacao.get().setBairroassociacao(associacaod.getBairroassociacao());
@@ -119,7 +126,7 @@ public class AssociacaoController {
 		return"redirect:/listarAssociacao";
 	}
 	
-	@GetMapping("/delete/{cod_associacao}")
+	@GetMapping("/deleteassociacao/{cod_associacao}")
 	public String deleteassociacao(@PathVariable("cod_associacao") long cod_associacao, Model model) {
 	   AssociacaoModel associacao= associacaoservice.listarporcodigo(cod_associacao);
 	     

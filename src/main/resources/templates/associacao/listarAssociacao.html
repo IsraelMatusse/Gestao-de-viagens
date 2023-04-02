@@ -21,8 +21,8 @@
 	
 	<h3> <a href="/cadastrarAssociacao"  class="waves-effect waves-light btn"><i class="material-icons left"></i>Cadastrar Associacao </a> </h3>
 		<div>
-		 <form th:action="@{/search}"  method="get" >
-		 	<input type="text" name="keyword" th:value="${keyword}" placeholder="digite um nome da associacao" />
+		 <form th:action="@{/searchassociacao}"  method="get" >
+		 	<input type="text" name="keyword" th:value="${keyword}" placeholder="digite um nome da associacao" required/>
 		 	<input type="submit" value="pesquisar" />
 		 	<input type="reset" value="apagar" />
 		 </form>	
@@ -49,8 +49,8 @@
 		<td> <span th:text=${associacao.cidadeassociacao}> </span> </td>
 		<td> <span th:text=${associacao.emailassociacao}> </span> </td>
 		<td> <span th:text=${associacao.contactoassociacao}> </span> </td>
-		<td><a th:href="@{/edit/{cod_associacao}(cod_associacao=${associacao.codassociacao})}">Edit</a></td>
-       	<td><a th:href="@{/delete/{cod_associacao}(cod_associacao=${associacao.codassociacao})}">Delete</a></td>
+		<td><a th:href="@{/editassociacao/{cod_associacao}(cod_associacao=${associacao.codassociacao})}">Edit</a></td>
+       	<td><a th:href="@{/deleteassociacao/{cod_associacao}(cod_associacao=${associacao.codassociacao})}">Delete</a></td>
 		</tr>
 		</tbody> 
 	</tr>

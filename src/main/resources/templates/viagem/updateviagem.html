@@ -21,18 +21,17 @@
 	<p> <a href="/listarviagem"> Listar Viagens </a> </p>
 				
     <form action="#" 
-  		  th:action="@{/update/{cod_associacao}(cod_viagem=${viagem.codviagem})}" 
+  		  th:action="@{/updateviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}" 
   		  th:object="${viagem}" 
   			method="post">
 
-  <form th:action="@{/salvarviagem}" th:object="${viagem}" method="post">
-
     <p><label for="destino_viagem">Destino</label>
-    <input type="text" name="destino_viagem" value=""></p>
+    <input type="text" required  name="destino_viagem" value=""></p>
     <p><label for="saida">Hora de saida</label>
-    <input type="time" name="saida" value=""></p>
+    <input type="datetime-local" name="saida" value=""></p>
      <p><label for="prev_chegada">Previsao de chegada</label>
-    <input type="time" name="prev_chegada"  value=""></p>
+    <input type="dattime-local" name="prev_chegada"  value=""></p>
+    <input type="submit" value="editar" />
     </form>
     
     

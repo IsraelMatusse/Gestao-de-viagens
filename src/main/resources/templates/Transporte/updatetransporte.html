@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns: th="http://thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>    
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transporte</title>
+
+</head>
+<body>
+
+	<p> <a href="/listartransporte"> Listar Transporte </a> </p>
+
+    <form 
+    action="#"
+    th:action="@{/updatetransporte/{cod_transporte}(cod_transporte=${transporte.codtransporte})}"
+    th:object="${transporte}"
+     method="POST">
+
+	<p> <label for="marca"> Marca </label > <input type="text" value="" name="marca" /> </p>
+	<p> <label for="modedelo"> Modelo </label > <input type="text" value="" name="modelo" />  </p>
+		<p> <label for="anonafabrico"> ano de fabrico </label > <input type="number" value="" name="anofabrico"/></p>
+	  <p> <label for="cor"> Cor </label > <input type="text" value="" name="cor"/> </p>
+	  <p>  <label for="matricula"> Matricula </label > <input type="text" value="" name="matricula" /> </p>
+	  	<p> <label for="Cidade"> Cidade </label > <input type="text" value="" name="Cidade"/> </p>
+		  	<p> <label for="nrmotor"> nr do motor </label > <input type="text" value="" name="nrmotor"/>
+		  	</p><label for="tipo"> Tipo  </label > <input type="text" value="" name="tipo"/> </p>
+			 <p> <label for="pesobruto"> Peso bruto </label > <input type="number" value="" name="pesobruto"/> </p>
+			 <p> <label for="nrportas" > Numero de portas </label> <input type="number" name="nrportas"> </p>
+			 <p> <label for="lotacao" > Lotacao </label> <input type="number" name="lotacao"> </p>
+			 <p><label for="combustivel">Combustivel</label> <input type="text" name="combustivel"></p>
+			 <p><label for="quilometrgem">Quilometragem</label> <input type="number" name="quilometragem" id=""></p>
+	
+		<p> <input type="submit" value="cadastrar" /> </p>
+    </form>
+	
+    
+        
+    
+	<!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>

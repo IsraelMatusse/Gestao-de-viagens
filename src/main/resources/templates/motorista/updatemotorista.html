@@ -19,17 +19,20 @@
 <body>
 	<p>	<a href="/listarmotorista"> Listar Motoristas </a> </p>
 	<h3> Cadastro de Motorista </h3>
-	<form method="POST">
-		<p> <label for="nome"> Nome </label > <input type="text" value="" name="nome" required /> 
-			 <label for="apelido"> Apelido </label > <input type="text" value="" required name="apelido" /> 
-			   <p> <label for="anonascimento"> ano de nascimento </label > <input required type="number" value="" name="anonascimento"/></p>
-			    <p> <label for="email"> BI: </label > <input type="text" value="" required name="BI"/>
-	  <p> <label for="provincia"> Provincia </label > <input type="text" value="" required name="provincia"/>
-		   <label for="bairro"> Bairro </label > <input type="text" value="" required name="bairro" /> 
-		    <label for="Cidade"> Cidade </label > <input type="text" value="" required name="Cidade"/> </p>
-		  <p> <label for="nrcarta"> nr da carta </label > <input type="text" value="" required name="nrcarta"/>
-		   <label for="nivelcarta"> Nivel da carta </label > <input type="text" required value="" name="nivelcarta"/> </p>
-			 <p> <label for="email"> email </label > <input type="email" value="" required name="email"/>
+	<form 
+		action="#"
+		th:action="@{/updatemotorista/{cod_motorista}(cod_motorista=${motorista.codigo})}"
+		th:object="${motorista}"
+	method="POST">
+		<p> <label for="nome"> Nome </label > <input type="text" value="" name="nome" /> 
+			 <label for="apelido"> Apelido </label > <input type="text" value="" name="apelido" /> 
+			   <p> <label for="anonascimento"> ano de nascimento </label > <input type="number" value="" name="anonascimento"/></p>
+	  <p> <label for="provincia"> Provincia </label > <input type="text" value="" name="provincia"/>
+		   <label for="bairro"> Bairro </label > <input type="text" value="" name="bairro" /> 
+		    <label for="Cidade"> Cidade </label > <input type="text" value="" name="Cidade"/> </p>
+		  <p> <label for="nrcarta"> nr da carta </label > <input type="text" value="" name="nrcarta"/>
+		   <label for="nivelcarta"> Nivel da carta </label > <input type="text" value="" name="nivelcarta"/> </p>
+			 <p> <label for="email"> email </label > <input type="email" value="" name="email"/>
 		<p> <input type="submit" value="cadastrar" /> </p>
 		</form>
 		

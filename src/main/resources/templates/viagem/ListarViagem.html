@@ -31,6 +31,7 @@
 				<th> Destino da Viagem</th>
 				<th>Previsao da hora de chegada</th>
 				<th> Hora de saida </th>
+				<th> Chave da viagem </th>
 				<th> Edit </th>
 				<th> Delete </th>
 			</tr>
@@ -40,6 +41,7 @@
 			<td> <a th:href="${(#mvc.url('VC#detalhesViagem').arg(0, viagem.codviagem)).build()}"> <span th:text=${viagem.destino_viagem}></span></a></td>
 			<td> <span th:text=${viagem.prev_chegada}> </span> </td>
 			<td><span th:text=${viagem.saida}> </span> </td>
+			<td><span th:text=${viagem.chaveviagem}> </span> </td>
 			<td> <a th:href="@{/editviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}"> Edit </a></td>
 				<td><a th:href="@{/deleteviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}">Delete</a></td>
 			</tr>

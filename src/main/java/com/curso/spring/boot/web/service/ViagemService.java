@@ -42,5 +42,7 @@ public class ViagemService {
 	 public List <ViajantesDestino> viajantesdestino(String destino_viagem){
 		 return vr.findByDestino(destino_viagem);
 	 }
+	 public List <ViajantesDestino> viajantesporchave(String chaveviagem){
+		 return vr.findByChave(chaveviagem);	 }
 
 }

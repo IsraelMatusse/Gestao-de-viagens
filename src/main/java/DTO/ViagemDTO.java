@@ -18,5 +18,12 @@ public class ViagemDTO {
 		this.destino_viagem = destino_viagem;
 	}
 	
+	public String getChaveviagem() {
+		return chaveviagem;
+	}
+	public void setChaveviagem(String chaveviagem) {
+		this.chaveviagem=chaveviagem;
+	}
+	
 
 }

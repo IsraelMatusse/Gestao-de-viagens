@@ -35,12 +35,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="viagensdestino:${viagensdestino}">
+			<tr th:each="viajantesdestino:${viajantesdestino}">
 		
-				<td><span th:text=${viagensdestinom.Destino}> </span> </td>
-			<td><span th:text=${viagensdestino.Nome}> </span> </td>
-			<td> <a th:href="@{/editviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}"> Edit </a></td>
-				<td><a th:href="@{/deleteviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}">Delete</a></td>
+				<td><span th:text=${viajantesdestino.DestinoViagem}> </span> </td>
+			<td><span th:text=${viajantesdestino.Nome}> </span> </td>
+		<!--	<td> <a th:href="@{/editviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}"> Edit </a></td>
+				<td><a th:href="@{/deleteviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}">Delete</a></td> -->
 			</tr>
 		</tbody>
 	</table>

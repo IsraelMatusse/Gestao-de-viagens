@@ -19,9 +19,9 @@
 <body>
 
 	<h4>  Lista de viagens </h4>
-	<h2> PESQUISAR PELO DESTINO DA VIAGEM </h2>
-		 <form th:action="@{/findbydestino}"  method="get" >
-		 	<input type="text" name="destino_viagem" th:value="${destino_viagem}" placeholder="pesquise uma viagem pelo destino" />
+	<h2> PESQUISAR PELA CHAVE DA VIAGEM </h2>
+		 <form th:action="@{/findByChave}"  method="get" >
+		 	<input type="text" name="chaveviagem" th:value="${chaveviagem}" placeholder="pesquise uma viagem pela chave" />
 		 	<input type="submit" value="pesquisar" />
 		 	<input type="reset" value="apagar" />
 		 </form>
@@ -30,15 +30,16 @@
 			<tr>
 				<th> Destino da Viagem</th>
 				<th> Nome do passageiro </th>
-				<th> Edit </th>
+				<th> Chave da viagem</th>
 				<th> Delete </th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="viajantesdestino:${viajantesdestino}">
+			<tr th:each="destinoporchave:${destinoporchave}">
 		
-				<td><span th:text=${viajantesdestino.DestinoViagem}> </span> </td>
-			<td><span th:text=${viajantesdestino.Nome}> </span> </td>
+				<td><span th:text=${destinoporchave.DestinoViagem}> </span> </td>
+			<td><span th:text=${destinoporchave.Nome}> </span> </td>
+				<td><span th:text=${destinoporchave.ChaveViagem}> </span> </td>
 		<!--	<td> <a th:href="@{/editviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}"> Edit </a></td>
 				<td><a th:href="@{/deleteviagem/{cod_viagem}(cod_viagem=${viagem.codviagem})}">Delete</a></td> -->
 			</tr>

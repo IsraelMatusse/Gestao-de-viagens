@@ -103,7 +103,7 @@ public class ViagemController  {
 	    return "redirect:/listarviagem";
 	}
 	
-	 @RequestMapping(path = {"/listarviagens","/findbydestino"})
+	/* @RequestMapping(path = {"/listarviagens","/findbydestino"})
 	 public String findbydestino(Model model, String destino_viagem) {
 	  if(destino_viagem!=null) {
 	   List<ViajantesDestino> viajantesdestino = viagemservice.viajantesdestino(destino_viagem);
@@ -113,12 +113,12 @@ public class ViagemController  {
 	  model.addAttribute("viagem", viagem);}
 	  return "Estatisticas/viagem";
 	 }
-	 
+	 */
 	 @RequestMapping(path = {"/listarviagens","/findByChave"})
 	 public String findbychave(Model model, String chaveviagem) {
 	  if(chaveviagem!=null) {
-	   List<ViajantesDestino> viajantesdestino = viagemservice.viajantesporchave(chaveviagem);
-	   model.addAttribute("viajantesdestino",viajantesdestino);
+	   List<ViajantesDestino> destinoporchave = viagemservice.viajantesporchave(chaveviagem);
+	   model.addAttribute("destinoporchave", destinoporchave);
 	  }else {
 	  List<ViagemModel> viagem = viagemservice.listarViagens();
 	  model.addAttribute("viagem", viagem);}

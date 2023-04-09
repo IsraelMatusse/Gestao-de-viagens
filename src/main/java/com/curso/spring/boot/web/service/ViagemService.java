@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.curso.spring.boot.web.model.AssociacaoModel;
 import com.curso.spring.boot.web.model.ViagemModel;
+import com.curso.spring.boot.web.repository.DestinoChave;
+import com.curso.spring.boot.web.repository.RankingDestino;
 import com.curso.spring.boot.web.repository.ViagemRepository;
 import com.curso.spring.boot.web.repository.ViajantesDestino;
 
@@ -42,7 +44,11 @@ public class ViagemService {
 	 public List <ViajantesDestino> viajantesdestino(String destino_viagem){
 		 return vr.findByDestino(destino_viagem);
 	 }
-	 public List <ViajantesDestino> viajantesporchave(String chaveviagem){
+	 public List <DestinoChave> viajantesporchave(String chaveviagem){
 		 return vr.findByChave(chaveviagem);	 }
+	 
+	 public List<RankingDestino> rankingdestino(){
+		 return vr.findDestino();
+	 }
 
 }

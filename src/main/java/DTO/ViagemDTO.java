@@ -5,6 +5,7 @@ public class ViagemDTO {
 	private String nome;
 	private String destino_viagem;
 	private String chaveviagem;
+	private Long numeroviagens;
 	public String getNome() {
 		return nome;
 	}
@@ -23,6 +24,12 @@ public class ViagemDTO {
 	}
 	public void setChaveviagem(String chaveviagem) {
 		this.chaveviagem=chaveviagem;
+	}
+	public Long getNumeroviagens() {
+		return numeroviagens;
+	}
+	public void setNumeroviagens(Long numeroviagens) {
+		this.numeroviagens = numeroviagens;
 	}
 	
 

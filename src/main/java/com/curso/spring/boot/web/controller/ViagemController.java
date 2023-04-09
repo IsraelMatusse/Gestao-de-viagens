@@ -20,6 +20,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.curso.spring.boot.web.model.ViagemModel;
 import com.curso.spring.boot.web.model.ViajanteModel;
+import com.curso.spring.boot.web.repository.DestinoChave;
+import com.curso.spring.boot.web.repository.RankingDestino;
 import com.curso.spring.boot.web.repository.ViagemRepository;
 import com.curso.spring.boot.web.repository.ViajanteRepository;
 import com.curso.spring.boot.web.repository.ViajantesDestino;
@@ -117,7 +119,7 @@ public class ViagemController  {
 	 @RequestMapping(path = {"/listarviagens","/findByChave"})
 	 public String findbychave(Model model, String chaveviagem) {
 	  if(chaveviagem!=null) {
-	   List<ViajantesDestino> destinoporchave = viagemservice.viajantesporchave(chaveviagem);
+	   List<DestinoChave> destinoporchave = viagemservice.viajantesporchave(chaveviagem);
 	   model.addAttribute("destinoporchave", destinoporchave);
 	  }else {
 	  List<ViagemModel> viagem = viagemservice.listarViagens();
@@ -125,6 +127,16 @@ public class ViagemController  {
 	  return "Estatisticas/viagem";
 	 }
 
+	 
+	 @RequestMapping(path = {"/listarviagens","/rankingdestino"})
+	 public String finddestino(Model model) {
+	   List<RankingDestino> rankingdestino = viagemservice.rankingdestino();
+	   model.addAttribute("rankingdestino", rankingdestino);
+
+	  List<ViagemModel> viagem = viagemservice.listarViagens();
+	  model.addAttribute("viagem", viagem);
+	  return "Estatisticas/viagem";
+	 }
 
 	
 }

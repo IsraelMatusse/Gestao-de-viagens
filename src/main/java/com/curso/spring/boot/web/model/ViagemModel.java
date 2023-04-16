@@ -29,8 +29,7 @@ public class ViagemModel implements Serializable{
 	private String saida;
 	@Column(nullable=false)
 	private String prev_chegada;
-	@Column(nullable=false)
-	private Long preco;
+
 	@Column(nullable=false)
 	private String chaveviagem;
 	public String getChaveviagem() {
@@ -52,12 +51,7 @@ public class ViagemModel implements Serializable{
 	public void setCod_viagem(Long cod_viagem) {
 		this.codviagem = cod_viagem;
 	}
-	public Long getPreco() {
-		return preco;
-	}
-	public void setPreco(Long preco) {
-		this.preco = preco;
-	}
+
 	public String getSaida() {
 		return saida;
 	}

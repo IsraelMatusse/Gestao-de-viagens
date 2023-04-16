@@ -25,6 +25,7 @@ public interface ViagemRepository extends CrudRepository<ViagemModel, String>{
 	 List<DestinoChave>findByChave(@Param("chaveviagem") String chaveviagem);
 	 
 	 
-	 @Query(value="select destino_viagem, count(destino_viagem) as numeroviagens from viagem group by destino_viagem asc")
+	 @Query(value="select destino_viagem Destino_Viagem, count(destino_viagem) as NumeroViagens from viagem GROUP BY destino_viagem\r\n"
+	 		+ "ORDER BY NumeroViagens DESC", nativeQuery=true)
 	 List<RankingDestino>findDestino();
 }

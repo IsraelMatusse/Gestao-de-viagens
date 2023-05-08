@@ -8,8 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.curso.spring.boot.web.model.ViagemModel;
 
-import DTO.ViagemDTO;
-
 @Repository
 public interface ViagemRepository extends CrudRepository<ViagemModel, String>{
 

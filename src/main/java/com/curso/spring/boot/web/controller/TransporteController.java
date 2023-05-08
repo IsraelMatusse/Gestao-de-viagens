@@ -12,16 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.curso.spring.boot.web.model.AssociacaoModel;
-import com.curso.spring.boot.web.model.MotoristaModel;
 import com.curso.spring.boot.web.model.TransporteModel;
-import com.curso.spring.boot.web.model.ViagemModel;
-import com.curso.spring.boot.web.model.ViajanteModel;
 import com.curso.spring.boot.web.repository.Viagensrealizadas;
 import com.curso.spring.boot.web.service.AssociacaoService;
 import com.curso.spring.boot.web.service.MotoristaService;
@@ -29,8 +23,6 @@ import com.curso.spring.boot.web.service.ProprietarioEmpresaService;
 import com.curso.spring.boot.web.service.ProprietarioService;
 import com.curso.spring.boot.web.service.RotaService;
 import com.curso.spring.boot.web.service.TransporteService;
-
-import DTO.TransporteDTO;
 
 @Controller
 public class TransporteController {

@@ -1,4 +1,4 @@
-package DTO;
+package com.curso.spring.boot.web.DTO.ViagemDTO;
 
 public class ViagemDTO {
 	

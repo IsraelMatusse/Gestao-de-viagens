@@ -24,7 +24,7 @@ import com.curso.spring.boot.web.model.RotaModel;
 import com.curso.spring.boot.web.repository.AssociacaoRepository;
 import com.curso.spring.boot.web.service.AssociacaoService;
 import com.curso.spring.boot.web.service.RotaService;
-
+@RequestMapping("associacao")
 
 @Controller
 public class AssociacaoController {

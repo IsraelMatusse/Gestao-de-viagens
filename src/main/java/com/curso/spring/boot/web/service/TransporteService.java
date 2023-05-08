@@ -6,12 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.curso.spring.boot.web.model.MotoristaModel;
 import com.curso.spring.boot.web.model.TransporteModel;
 import com.curso.spring.boot.web.repository.TransporteRepository;
 import com.curso.spring.boot.web.repository.Viagensrealizadas;
-
-import DTO.TransporteDTO;
 
 @Transactional
 @Service

@@ -2,15 +2,11 @@ package com.curso.spring.boot.web.repository;
 
 import java.util.List;
 
-import javax.persistence.SqlResultSetMapping;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.curso.spring.boot.web.model.TransporteModel;
-
-import DTO.TransporteDTO;
 
 @Repository
 public interface TransporteRepository extends CrudRepository <TransporteModel, Long>{

@@ -15,8 +15,7 @@ public class ViagemService {
 	
 	@Autowired
 	ViagemRepository vr;
-	@Autowired
-	ViagemUpdateRepository vur;
+
 	
 	public void salvarViagem( ViagemModel viagem) {
 		viagem.setChaveviagem(UUID.randomUUID().toString().substring(0, 5));

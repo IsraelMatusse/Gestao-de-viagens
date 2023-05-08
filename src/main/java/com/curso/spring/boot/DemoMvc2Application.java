@@ -18,7 +18,8 @@ public class DemoMvc2Application {
 	}
 	private void criarSuperAdministrador( UserService usuarioService) {
 		// Creating an Admin and Adding Role Admin
-		UserModel user = new UserModel( "gestaoviagens@gmail.com",
-				"admin@gmail.com", "admin");
+		UserModel user = new UserModel(null, "admin", "gestaoviagens@gmail.com",
+				"12345", "admin");
 		usuarioService.cadastraruser(user);
+	}
 }

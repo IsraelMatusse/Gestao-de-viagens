@@ -1,26 +1,37 @@
 package com.curso.spring.boot.web.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Data
 @Entity(name="proprietario_individual")
 public class Proprietario_individualModel extends ProprietarioModel{
-	
+
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private Long codproprietario;
+	@Column(nullable=false)
+	private String nome;
+	@Column(nullable=false)
+	private String bairro;
+	@Column(nullable=false)
+	private String cidade;
+	@Column(nullable=false)
+	private String tipolicenca;
+	@Column(nullable=false)
+	private String provincia;
+	@OneToMany(mappedBy="proprietario", cascade = CascadeType.ALL)
+	private List<TransporteModel> transporte;
+	public List<TransporteModel> getTransporte() {
+		return transporte;
+	}
 	@Column(nullable=false)
 	private Double anonascimento;
-	@Column(nullable=false)
-	private String bi;
-	public Double getAnonascimento() {
-		return anonascimento;
-	}
-	public void setAnonascimento(Double anonascimento) {
-		this.anonascimento = anonascimento;
-	}
-	public String getBi() {
-		return bi;
-	}
-	public void setBi(String bi) {
-		this.bi = bi;
-	}
+	@ManyToOne
+	private GeneroModel genero;
+	@ManyToOne
+	private DocumentoIdentificacaoModel documentoIdentificacaoModel;
 	
 }

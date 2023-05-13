@@ -1,34 +1,36 @@
 package com.curso.spring.boot.web.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import lombok.Data;
 
+import javax.annotation.sql.DataSourceDefinition;
+import javax.persistence.*;
+import java.util.List;
+
+@Data
 @Entity(name="proprietario_empresa")
-public class Proprietario_EmpresaModel extends ProprietarioModel {
-	
+public class Proprietario_EmpresaModel extends AccoesdoSistemaModel{
+
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private Long codproprietario;
+	@Column(nullable=false)
+	private String nome;
+	@Column(nullable=false)
+	private String bairro;
+	@Column(nullable=false)
+	private String cidade;
+	@Column(nullable=false)
+	private String tipolicenca;
+	@Column(nullable=false)
+	private String provincia;
+	@OneToMany(mappedBy="proprietario", cascade = CascadeType.ALL)
+	private List<TransporteModel> transporte;
 	@Column(nullable=false)
 	private Double nuit;
 	@Column(nullable=false)
 	private String alvara;
 	@Column(nullable=false)
 	private Long anocriacao;
-	public Double getNuit() {
-		return nuit;
-	}
-	public void setNuit(Double nuit) {
-		this.nuit = nuit;
-	}
-	public String getAlvara() {
-		return alvara;
-	}
-	public void setAlvara(String alvara) {
-		this.alvara = alvara;
-	}
-	public Long getAnocriacao() {
-		return anocriacao;
-	}
-	public void setAnocriacao(Long anocriacao) {
-		this.anocriacao = anocriacao;
-	}
-	
+	@ManyToOne
+	private DocumentoIdentificacaoModel documentoIdentificacaoModel;
 }

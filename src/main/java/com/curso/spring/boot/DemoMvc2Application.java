@@ -16,10 +16,12 @@ public class DemoMvc2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoMvc2Application.class, args);
 	}
-	private void criarSuperAdministrador( UserService usuarioService) {
+	/*private void criarSuperAdministrador( UserService usuarioService) {
 		// Creating an Admin and Adding Role Admin
 		UserModel user = new UserModel(null, "admin", "gestaoviagens@gmail.com",
 				"12345", "admin");
 		usuarioService.cadastraruser(user);
 	}
+
+	 */
 }

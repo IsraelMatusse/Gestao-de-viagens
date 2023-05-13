@@ -1,5 +1,7 @@
 package com.curso.spring.boot.web.model;
 
+import lombok.Data;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-
+@Data
 @Entity(name="rota")
 public class RotaModel {
 	
@@ -27,25 +29,7 @@ public class RotaModel {
 	@Column(nullable=false)
 	private long preco;
 	
-	public Long getCodrota() {
-		return codrota;
-	}
-	public void setCodrota(Long codrota) {
-		this.codrota = codrota;
-	}
-	public String getNomerota() {
-		return nomerota;
-	}
-	public void setNomerota(String nomerota) {
-		this.nomerota = nomerota;
-	}
-	public Long getDistancia() {
-		return distancia;
-	}
-	public void setDistancia(Long distancia) {
-		this.distancia = distancia;
-	}
-	
+
 	@ManyToMany
 	@JoinTable(name="associacao_rota",
 	joinColumns= @JoinColumn(name="rota_fk"),

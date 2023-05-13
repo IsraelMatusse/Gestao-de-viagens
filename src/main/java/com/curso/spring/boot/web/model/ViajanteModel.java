@@ -1,5 +1,7 @@
 package com.curso.spring.boot.web.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
-
+@Data
 @Entity(name="viajante")
 
 public class ViajanteModel extends PessoaModel {
@@ -24,13 +26,6 @@ public class ViajanteModel extends PessoaModel {
 	inverseJoinColumns = @JoinColumn(name="viagem_fk"))
 	private List<ViagemModel> viagem;
 
-	public List<ViagemModel> getViagem() {
-		return viagem;
-	}
-
-	public void setViagem(List<ViagemModel> viagem) {
-		this.viagem = viagem;
-	}
 
 	
 

@@ -1,16 +1,18 @@
 package com.curso.spring.boot.web.model;
 
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
 
-
+@Data
 @Entity
 @Table(name="associacao")
-public class AssociacaoModel implements Serializable{
+public class AssociacaoModel extends AccoesdoSistemaModel{
 	
 	
 	private static final Long serialVersionUID=1L;
@@ -27,53 +29,12 @@ public class AssociacaoModel implements Serializable{
 	private String emailassociacao;
 	@Column(nullable=false)
 	private int contactoassociacao;
-	public Long getCodassociacao() {
-		return codassociacao;
-	}
-	public void setCodassociacao(Long cod_associacao) {
-		this.codassociacao = cod_associacao;
-	}
-	public String getNomeassociacao() {
-		return nomeassociacao;
-	}
-	public void setNomeassociacao(String nome_associacao) {
-		this.nomeassociacao = nome_associacao;
-	}
-	public String getBairroassociacao() {
-		return bairroassociacao;
-	}
-	public void setBairroassociacao(String bairro_associacao) {
-		this.bairroassociacao = bairro_associacao;
-	}
-	public String getCidadeassociacao() {
-		return cidadeassociacao;
-	}
-	public void setCidadeassociacao(String cidade_associacao) {
-		this.cidadeassociacao = cidade_associacao;
-	}
-	public String getEmailassociacao() {
-		return emailassociacao;
-	}
-	public void setEmailassociacao(String email_associacao) {
-		this.emailassociacao = email_associacao;
-	}
-	public int getContactoassociacao() {
-		return contactoassociacao;
-	}
-	public void setContacto_associacao(int contacto_associacao) {
-		this.contactoassociacao = contacto_associacao;
-	}
+
 	
 	@OneToMany(mappedBy="associacao", cascade = CascadeType.ALL)
 	private List<ViagemModel> viagens;
 	public List<ViagemModel> getViagens() {
 		return viagens;
-	}
-	public void setViagens(List<ViagemModel> viagens) {
-		this.viagens = viagens;
-	}
-	public void setContactoassociacao(int contactoassociacao) {
-		this.contactoassociacao = contactoassociacao;
 	}
 
 	@ManyToMany()

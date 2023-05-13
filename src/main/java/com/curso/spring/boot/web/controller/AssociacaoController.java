@@ -119,7 +119,7 @@ public class AssociacaoController {
 		Optional<AssociacaoModel> associacao= Optional.ofNullable(associacaoservice.listarporcodigo(cod_associacao));
 		associacao.get().setBairroassociacao(associacaod.getBairroassociacao());
 		associacao.get().setCidadeassociacao(associacaod.getCidadeassociacao());
-		associacao.get().setContacto_associacao(associacaod.getContactoassociacao());
+		associacao.get().setContactoassociacao(associacaod.getContactoassociacao());
 		associacao.get().setEmailassociacao(associacaod.getEmailassociacao());
 		associacao.get().setNomeassociacao(associacaod.getNomeassociacao());
 		associacaoservice.cadastrarassociacao(associacao.get());

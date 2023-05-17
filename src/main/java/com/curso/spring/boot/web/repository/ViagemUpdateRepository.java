@@ -12,6 +12,9 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(componentModel = "spring")
 public interface ViagemUpdateRepository {
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+   /* @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void editarviagem( ViagemActualizarDTO viagemActualizarDTO , @MappingTarget ViagemModel entity);
+
+    */
 }
+

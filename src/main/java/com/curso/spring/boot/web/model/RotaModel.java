@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 @Data
 @Entity(name="rota")
-public class RotaModel {
+public class RotaModel extends AccoesdoSistemaModel {
 	
 	
 	
@@ -35,22 +35,8 @@ public class RotaModel {
 	joinColumns= @JoinColumn(name="rota_fk"),
 	inverseJoinColumns = @JoinColumn(name="associacao_fk"))
 	private List<AssociacaoModel> associacao;
-	public List<AssociacaoModel> getAssociacao() {
-		return associacao;
-	}
-	public void setAssociacao(List<AssociacaoModel> associacao) {
-		this.associacao = associacao;
-	}
-	
 	@OneToMany(mappedBy="rota")
 	private List<TransporteModel> transporte;
-	public List<TransporteModel> getTransporte() {
-		return transporte;
-	}
-	public void setTransporte(List<TransporteModel> transporte) {
-		this.transporte = transporte;
-	} 
-	
-	
+
 	
 }

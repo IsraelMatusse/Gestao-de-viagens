@@ -12,7 +12,7 @@ public class Proprietario_EmpresaModel extends AccoesdoSistemaModel{
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private Long codproprietario;
+	private Long codproprietarioemepresa;
 	@Column(nullable=false)
 	private String nome;
 	@Column(nullable=false)

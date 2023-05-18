@@ -20,7 +20,7 @@ import com.curso.spring.boot.web.repository.Viagensrealizadas;
 import com.curso.spring.boot.web.service.AssociacaoService;
 import com.curso.spring.boot.web.service.MotoristaService;
 import com.curso.spring.boot.web.service.ProprietarioEmpresaService;
-import com.curso.spring.boot.web.service.ProprietarioService;
+import com.curso.spring.boot.web.service.ProprietarioIndividualService;
 import com.curso.spring.boot.web.service.RotaService;
 import com.curso.spring.boot.web.service.TransporteService;
 
@@ -33,8 +33,8 @@ public class TransporteController {
 	AssociacaoService associacaoservice;
 	@Autowired
 	MotoristaService motoristaservice;
-	@Autowired 
-	ProprietarioService proprietarioserice;
+	@Autowired
+    ProprietarioIndividualService proprietarioserice;
 	
 	@Autowired
 	ProprietarioEmpresaService empresaservice;

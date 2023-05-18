@@ -7,11 +7,11 @@ import java.util.List;
 
 @Data
 @Entity(name="proprietario_individual")
-public class Proprietario_individualModel extends ProprietarioModel{
+public class Proprietario_individualModel extends AccoesdoSistemaModel{
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private Long codproprietario;
+	private Long codproprietarioindividual;
 	@Column(nullable=false)
 	private String nome;
 	@Column(nullable=false)
@@ -24,9 +24,6 @@ public class Proprietario_individualModel extends ProprietarioModel{
 	private String provincia;
 	@OneToMany(mappedBy="proprietario", cascade = CascadeType.ALL)
 	private List<TransporteModel> transporte;
-	public List<TransporteModel> getTransporte() {
-		return transporte;
-	}
 	@Column(nullable=false)
 	private Double anonascimento;
 	@ManyToOne

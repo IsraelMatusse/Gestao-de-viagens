@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.curso.spring.boot.web.model.Proprietario_individualModel;
-import com.curso.spring.boot.web.repository.ProprietarioIndividualRepository;
+import com.curso.spring.boot.web.repository.proprietarioIndividualRepository;
 
 @Controller
 public class Proprietario_IndividalController {
 	
 	@Autowired
-	ProprietarioIndividualRepository pir;
+	proprietarioIndividualRepository pir;
 	
 	@GetMapping("/proprietarioindividual")
 	public String proprietrioindividual() {

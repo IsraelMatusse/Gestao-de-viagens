@@ -50,14 +50,22 @@
             </option>  
         </select>
 
-			<label><b>Proprietarios:</b></label>
-        <select th:field="${transporte.proprietario}"required>
-            <option value="">Escolha o proprietario</option>
-      	     <option  th:each="proprietario:${proprietarios}"
-                        th:value="${proprietario.codproprietario}"
-                    	 th:text="${proprietario.nome}"> 
-            </option>  
+			<label><b>Proprietarios individuais:</b></label>
+        <select th:field="${transporte.proprietarioindividual}"required>
+            <option value="">Escolha o proprietario individual</option>
+      	     <option  th:each="proprietarioindividual:${proprietariosindividuais}"
+                        th:value="${proprietarioindividual.codproprietarioindividual}"
+                    	 th:text="${proprietarioindividual.nome}">
+            </option>
         </select>
+		<label><b>Proprietarios corporativos:</b></label>
+		<select th:field="${transporte.proprietarioempresa}"required>
+			<option value="">Escolha o proprietarios corporativos</option>
+			<option  th:each="proprietarioempresa:${proprietariosempresas}"
+					 th:value="${proprietarioempresa.codproprietarioempresa}"
+					 th:text="${proprietarioempresa.nome}">
+			</option>
+		</select>
         
         	<label><b>Rota:</b></label>
         <select th:field="${transporte.rota}"required>

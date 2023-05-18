@@ -38,6 +38,8 @@ public class TransporteController {
 	
 	@Autowired
 	ProprietarioEmpresaService empresaservice;
+	@Autowired
+	ProprietarioIndividualService proprietarioIndividualService;
 	
 	@Autowired
 	RotaService rotaservice;
@@ -49,7 +51,8 @@ public class TransporteController {
 		mv.addObject("transportes", transporteservice.listartransporte());
 		mv.addObject("associacoes", associacaoservice.listarassociacao());
 		mv.addObject("motoristas", motoristaservice.listarmostoristas());
-		mv.addObject("proprietarios", empresaservice.listarempresa());
+		mv.addObject("proprietarioempresa", empresaservice.listarempresa());
+		mv.addObject("proprietarioindividual", proprietarioIndividualService.listarproprietario());
 		mv.addObject("rotas", rotaservice.listarotas() );
 		return mv;
 		

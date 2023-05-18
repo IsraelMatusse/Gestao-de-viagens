@@ -1,11 +1,10 @@
 package com.curso.spring.boot.web.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import com.curso.spring.boot.web.model.Proprietario_individualModel;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.curso.spring.boot.web.model.Proprietario_individualModel;
-
 @Repository
-public interface ProprietarioIndividualRepository extends CrudRepository <Proprietario_individualModel, Long> {
+public interface ProprietarioIndividualRepository extends JpaRepository<Proprietario_individualModel, Long> {
     Proprietario_individualModel findByCodproprietarioindividual(Long cod_proprietrioindividual);
 }

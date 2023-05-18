@@ -1,5 +1,6 @@
 package com.curso.spring.boot.web.controller;
 
+import com.curso.spring.boot.web.model.Proprietario_individualModel;
 import com.curso.spring.boot.web.service.ProprietarioIndividualService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,8 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.curso.spring.boot.web.model.Proprietario_individualModel;
 
 
 @Controller

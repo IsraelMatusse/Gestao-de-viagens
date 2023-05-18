@@ -24,7 +24,7 @@ public class MotoristaService {
 	}
 	
 	public MotoristaModel listarporcodigo(Long cod_motorista) {
-		return mr.findByCodigo(cod_motorista);
+		return mr.findByCodmotorista(cod_motorista);
 	}
 	
 	public List<MotoristaModel> searchmotorista(String keyword){

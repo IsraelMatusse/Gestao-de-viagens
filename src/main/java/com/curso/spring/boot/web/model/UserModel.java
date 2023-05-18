@@ -18,7 +18,7 @@ import java.util.Collection;
 public class UserModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long coduser;
 
     @Column(unique = true)
     private String username;

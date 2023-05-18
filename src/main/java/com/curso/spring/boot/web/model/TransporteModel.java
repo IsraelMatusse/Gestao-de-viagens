@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 @Entity(name="transporte")
+@Table(name="transporte")
 @Data
 public class TransporteModel extends AccoesdoSistemaModel{
 
@@ -12,12 +13,6 @@ public class TransporteModel extends AccoesdoSistemaModel{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long codtransporte;
-    public Long getCodtransporte() {
-        return codtransporte;
-    }
-    public void setCodtransporte(Long codtransporte) {
-        this.codtransporte = codtransporte;
-    }
     @Column(nullable=false)
     private String matricula;
     @Column(nullable=false)
@@ -47,10 +42,11 @@ public class TransporteModel extends AccoesdoSistemaModel{
     private AssociacaoModel associacao;
     @OneToOne
     private MotoristaModel motorista;
-    @ManyToOne(cascade = CascadeType.DETACH)
+    @ManyToOne
     private Proprietario_individualModel proprietarioIndividual;
-    @ManyToOne(cascade = CascadeType.DETACH)
+    @ManyToOne
     private Proprietario_EmpresaModel proprietarioEmpresa;
+
     @OneToMany(mappedBy="transporte", cascade = CascadeType.ALL)
     private List<ViagemModel> viagem;
     @ManyToOne(cascade = CascadeType.DETACH)

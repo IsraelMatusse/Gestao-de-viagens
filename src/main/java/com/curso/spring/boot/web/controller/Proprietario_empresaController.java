@@ -45,7 +45,7 @@ public class Proprietario_empresaController {
 	@GetMapping("/{codproprietario}")
 	public ModelAndView detalhesempresa(@PathVariable ("codproprietario") Long codproprietario) {
 		ModelAndView mv= new ModelAndView("proprietario/proprietario_empresa/detalhesempresa");
-		Proprietario_EmpresaModel proprietarioempresa= per.findByCodproprietario(codproprietario);
+		Proprietario_EmpresaModel proprietarioempresa= per.findBycodproprietarioemepresa(codproprietario);
 		mv.addObject("proprietarioempresa", proprietarioempresa);
 		return mv;
 	}

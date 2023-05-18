@@ -13,7 +13,7 @@ import com.curso.spring.boot.web.model.MotoristaModel;
 @Repository
 public interface MotoristaRepository extends CrudRepository <MotoristaModel , Long> {
 
-	MotoristaModel findByCodigo(Long cod_motorista);
+	MotoristaModel findByCodmotorista(Long cod_motorista);
 	
 	@Query(value = "select * from motorista m where m.nome like %:keyword% or m.apelido like %:keyword%  or m.email like %:keyword%" , nativeQuery = true)
 	 List<MotoristaModel> findByKeyword(@Param("keyword") String keyword);

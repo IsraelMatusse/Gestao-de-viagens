@@ -2,15 +2,16 @@ package com.curso.spring.boot.web.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+
 @Data
 @Entity(name="motorista")
 
 public class MotoristaModel extends AccoesdoSistemaModel {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long codmotorista;
 	@Column(nullable=false)
 	private String nome;
 	@Column(nullable=false)
@@ -31,7 +32,6 @@ public class MotoristaModel extends AccoesdoSistemaModel {
 	private String nivelcarta;
 	@OneToOne
 	private TransporteModel transporte;
-
 	@ManyToOne
 	private GeneroModel genero;
 	@ManyToOne

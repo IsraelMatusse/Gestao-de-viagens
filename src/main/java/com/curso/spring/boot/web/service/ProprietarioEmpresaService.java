@@ -24,6 +24,6 @@ public class ProprietarioEmpresaService {
 	}
 	
 	public Proprietario_EmpresaModel listarempresaporcodigo(Long cod_empresa) {
-		return per.findByCodproprietario(cod_empresa);
+		return per.findBycodproprietarioemepresa(cod_empresa);
 	}
 }

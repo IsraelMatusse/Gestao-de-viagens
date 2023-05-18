@@ -11,6 +11,6 @@ import javax.persistence.Id;
 public class TipoDocumentoModel extends AccoesdoSistemaModel{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    private Long codtipodocumento;
     private String designacao;
 }

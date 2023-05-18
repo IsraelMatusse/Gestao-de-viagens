@@ -11,6 +11,6 @@ import javax.persistence.Id;
 public class ContactoModel extends AccoesdoSistemaModel {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    private Long codcontacto;
     private String msisdn;
 }

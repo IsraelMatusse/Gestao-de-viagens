@@ -3,10 +3,12 @@ package com.curso.spring.boot.web.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity(name="proprietario_individual")
+@Table(name="proprietario_empresa")
 public class Proprietario_individualModel extends AccoesdoSistemaModel{
 
 	@Id
@@ -22,8 +24,8 @@ public class Proprietario_individualModel extends AccoesdoSistemaModel{
 	private String tipolicenca;
 	@Column(nullable=false)
 	private String provincia;
-	@OneToMany(mappedBy="proprietario", cascade = CascadeType.ALL)
-	private List<TransporteModel> transporte;
+//	@OneToMany(mappedBy="proprietario_individual")
+//	private List<TransporteModel> transporte= new ArrayList<>();
 	@Column(nullable=false)
 	private Double anonascimento;
 	@ManyToOne

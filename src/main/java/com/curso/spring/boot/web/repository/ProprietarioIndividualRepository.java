@@ -7,5 +7,5 @@ import com.curso.spring.boot.web.model.Proprietario_individualModel;
 
 @Repository
 public interface ProprietarioIndividualRepository extends CrudRepository <Proprietario_individualModel, Long> {
-
+    Proprietario_individualModel findByCodproprietarioindividual(Long cod_proprietrioindividual);
 }

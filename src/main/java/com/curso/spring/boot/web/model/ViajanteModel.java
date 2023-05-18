@@ -11,8 +11,9 @@ import javax.persistence.*;
 @Entity(name="viajante")
 
 public class ViajanteModel extends AccoesdoSistemaModel {
-
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long codviajante;
 	@Column(nullable=false)
 	private String nome;
 	@Column(nullable=false)

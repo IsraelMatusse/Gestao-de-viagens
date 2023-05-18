@@ -13,7 +13,7 @@ import com.curso.spring.boot.web.model.ViajanteModel;
 @Repository
 public interface ViajanteRepository extends CrudRepository <ViajanteModel, Long> {
 
-	 ViajanteModel findBycodigo(Long cod_viajante);
+	 ViajanteModel findBycodviajante(Long cod_viajante);
 	 
 	 @Query(value = "select * from viajante s where s.nome like %:keyword% or s.apelido like %:keyword%", nativeQuery = true)
 	 List<ViajanteModel> findByKeyword(@Param("keyword") String keyword);

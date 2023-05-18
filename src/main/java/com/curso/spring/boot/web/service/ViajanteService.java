@@ -28,10 +28,8 @@ public class ViajanteService {
 	}
 	
 	public ViajanteModel ListarporCodigo(Long cod_viajante) {
-		return vvr.findBycodigo(cod_viajante);
-		
+		return vvr.findBycodviajante(cod_viajante);
 	}
-	
 	 public void apagarviajante(Long cod_viajante, ViajanteModel viajante) {
 		 vvr.delete(viajante);
 	 }

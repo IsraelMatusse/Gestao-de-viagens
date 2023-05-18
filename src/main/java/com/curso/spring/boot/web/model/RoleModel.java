@@ -11,7 +11,7 @@ import java.util.Collection;
 public class RoleModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long codrole;
 
     @Column(unique = true)
     private String name;

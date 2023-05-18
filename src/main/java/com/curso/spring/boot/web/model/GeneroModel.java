@@ -17,7 +17,7 @@ import javax.persistence.Id;
 public class GeneroModel extends AccoesdoSistemaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idGenero;
+    private Long codgenero;
     private String designacao;
     private char gen;
 }

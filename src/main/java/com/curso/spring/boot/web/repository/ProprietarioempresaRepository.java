@@ -6,6 +6,6 @@ import com.curso.spring.boot.web.model.Proprietario_EmpresaModel;
 
 public interface ProprietarioempresaRepository extends CrudRepository <Proprietario_EmpresaModel, Long> {
 
-	Proprietario_EmpresaModel findByCodproprietario(Long cod_empresa);
+	Proprietario_EmpresaModel findBycodproprietarioemepresa(Long cod_empresa);
 	
 }

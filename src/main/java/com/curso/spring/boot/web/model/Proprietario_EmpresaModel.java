@@ -4,10 +4,12 @@ import lombok.Data;
 
 import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity(name="proprietario_empresa")
+@Table(name = "proprietario_empresa")
 public class Proprietario_EmpresaModel extends AccoesdoSistemaModel{
 
 	@Id
@@ -23,8 +25,9 @@ public class Proprietario_EmpresaModel extends AccoesdoSistemaModel{
 	private String tipolicenca;
 	@Column(nullable=false)
 	private String provincia;
-	@OneToMany(mappedBy="proprietario", cascade = CascadeType.ALL)
-	private List<TransporteModel> transporte;
+//	@OneToMany(mappedBy="proprietario_empresa")
+//	private List<TransporteModel> transporte= new ArrayList<>();
+
 	@Column(nullable=false)
 	private Double nuit;
 	@Column(nullable=false)

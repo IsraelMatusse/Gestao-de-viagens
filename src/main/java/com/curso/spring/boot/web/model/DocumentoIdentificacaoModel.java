@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class DocumentoIdentificacaoModel extends AccoesdoSistemaModel{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    private Long coddocumento;
     @Column(nullable = false)
     private String numeroDocumento;
     @ManyToOne
